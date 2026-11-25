@@ -691,9 +691,27 @@
     <section class="section" id="articulos">
       <div class="section-header">
         <h2 class="section-title">Artículos y notas técnicas</h2>
-        <span class="section-count" id="articlesCount">3 publicaciones</span>
+        <span class="section-count" id="articlesCount">4 publicaciones</span>
       </div>
       <div class="articles-grid" id="articlesContainer">
+        <article class="card">
+          <div>
+            <div class="card-meta">
+              <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">Volcán Misti: conocer los peligros volcánicos es fundamental para la gestión del riesgo de desastres</h3>
+            <p class="card-excerpt">El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.</p>
+          </div>
+          <div class="card-footer">
+            <button class="read-link" onclick="openReader('article-1795638598598')">Leer artículo →</button>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('article', 'article-1795638598598')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'article-1795638598598')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      
         <article class="card">
           <div>
             <div class="card-meta">
@@ -860,12 +878,12 @@
   <div id="resourceModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'resourceModal')">
     <div class="modal">
       <div class="modal-header">
-        <h3 id="resourceModalTitle" class="modal-title">Editar artículo</h3>
+        <h3 id="resourceModalTitle" class="modal-title">Agregar artículo</h3>
         <button class="close-btn" onclick="closeModal('resourceModal')">×</button>
       </div>
       <form id="resourceForm" onsubmit="saveResource(event)">
         <input type="hidden" id="resType" value="article">
-        <input type="hidden" id="resId" value="art-2">
+        <input type="hidden" id="resId" value="">
         <div class="form-group">
           <label class="form-label">Título</label>
           <input type="text" id="resTitle" class="form-control" required="">
@@ -944,6 +962,14 @@
     "youtube": "https://www.youtube.com/@lizbethvelardequispe"
   },
   "articles": [
+    {
+      "id": "article-1795638598598",
+      "title": "Volcán Misti: conocer los peligros volcánicos es fundamental para la gestión del riesgo de desastres",
+      "category": "sinagerd",
+      "summary": "El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.",
+      "date": "noviembre de 2026",
+      "content": "Algunos de los principales peligros volcanicos se detallan a continuación y puedes ver una simulación en el siguiente enlace: https://youtu.be/PaFSuWJpXH8 \n\n🔸 Flujos piroclásticos: mezclas de gases, ceniza y fragmentos de roca a muy altas temperaturas que descienden por las laderas del volcán a gran velocidad. Estos flujos destruyen y calcinan todo lo que encuentren en su paso.\n\n🔸 Caída de piroclastos (tefras): fragmentos de roca que son expulsados hacia la atmosfera de manera violenta formando una columna eruptiva que puede alcanzar varios kilometros de altura y posteriormente caer sobre el suelo. Pueden generar problemas en la salud, contaminar fuentes de agua y cultivos, colapsar los techos por el peso, interrumpir el tráfico aéreo entre otros.\n\n🔸 Lahares: flujos de lodo y escombros volcánicos que pueden desplazarse por quebradas y cauces, alcanzando zonas alejadas del edificio volcánico. Pueden desbordarse y causar inundaciones y daños en áreas aledañas. Se pueden generar en periodos de erupción o de tranquilidad volcánica.\n\n🔸 Flujos de lava: corrientes de roca fundida que son expulsadas por el cráter o fracturas en los flancos del volcán. Calcinan y destruyen todo a su paso; sin embargo, no representan un peligro para las personas por su baja velocidad de desplazamiento.\n\n🔸 Avalanchas de escombros: son derrumbes o colapsos de un sector del volcán. Ocurren con poca frecuencia pero pueden alcanzar decenas de kilometros de distancia mientras se desplazan a gran velocidad. Entierran y destruyen todo lo que encuentran a su paso.\n\n🔸 Gases volcánicos: se producen durante la erupción volcánica, principalmente conformada por vapor de agua, pero también dioxido de carbono, dioido de azufre, acido clorhidrico, azufre, entre otros. Pueden provocar lluvias acidas que generan corroción y daños en los cultivos, y contaminar agua y suelos.\n\nPero conocer estos fenómenos es solo una parte. En la Gestión del Riesgo de Desastres, es fundamental conocer como podrian manifestarse estos peligros, que elementos estarian expuestos y cuales serian sus posibles consecuencias. \n\n\"La ciencia nos permite conocer los peligros; la gestión del riesgo nos permite transformar ese conocimiento en decisiones y acciones para proteger a la población.\"\n\nReferencia: Mapa de peligros del volcán Misti - Instituto Geofísico del Perú (IGP)."
+    },
     {
       "id": "art-1",
       "title": "Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD",
