@@ -1,1089 +1,1194 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth dark">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizbeth Velarde | Gestión de Riesgos · SINAGERD & PMBOK</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tipografía única y moderna: Plus Jakarta Sans (pesos moderados 400, 500, 600) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        canvas: '#12151E',
-                        surface: '#181C28',
-                        elevated: '#1E2434',
-                        midnight: '#1E2638',
-                        ink: {
-                            primary: '#E2E4EC',
-                            secondary: '#B0B5C4',
-                            muted: '#7D8496'
-                        },
-                        lavender: {
-                            DEFAULT: '#9D8EC7',
-                            soft: '#8E82B8',
-                            tint: 'rgba(157, 142, 199, 0.08)'
-                        },
-                        slateaccent: {
-                            DEFAULT: '#849BC7',
-                            tint: 'rgba(132, 155, 199, 0.08)'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #12151E;
-            color: #B0B5C4;
-            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.65;
-            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-            background-image: 
-                radial-gradient(ellipse 75% 45% at 50% -10%, rgba(157, 142, 199, 0.065), transparent),
-                radial-gradient(ellipse 55% 35% at 85% 10%, rgba(30, 38, 56, 0.45), transparent);
-            background-attachment: fixed;
-        }
-        .editorial-card {
-            background-color: #181C28;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: border-color 0.22s ease, background-color 0.22s ease;
-        }
-        .editorial-card:hover {
-            background-color: #1B202E;
-            border-color: rgba(157, 142, 199, 0.24);
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lizbeth Velarde | Gestión de Riesgos — SINAGERD y PMBOK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #12151E;
+      --bg-surface: #181C28;
+      --bg-surface-hover: #1E2332;
+      --bg-elevated: #22283A;
+      --border-subtle: rgba(226, 228, 236, 0.08);
+      --border-hover: rgba(157, 142, 199, 0.28);
+      --text-primary: #E2E4EC;
+      --text-secondary: #B0B5C4;
+      --text-muted: #7C8296;
+      --accent: #9D8EC7;
+      --accent-soft: rgba(157, 142, 199, 0.12);
+      --accent-border: rgba(157, 142, 199, 0.25);
+      --sinagerd-bg: rgba(114, 152, 196, 0.12);
+      --sinagerd-text: #9AB8DB;
+      --pmbok-bg: rgba(157, 142, 199, 0.12);
+      --pmbok-text: #BDB0E0;
+      --hybrid-bg: rgba(130, 173, 156, 0.12);
+      --hybrid-text: #9EC7B7;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-size: 14px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    /* Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(18, 21, 30, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topbar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 14.5px;
+      color: var(--text-primary);
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+      font-size: 13.5px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      background: var(--bg-surface);
+    }
+
+    .btn-primary {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--text-primary);
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: rgba(157, 142, 199, 0.2);
+      border-color: var(--accent);
+    }
+
+    /* Admin Toolbar */
+    .admin-bar {
+      display: none;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--accent-border);
+    }
+
+    .admin-bar.active {
+      display: block;
+    }
+
+    .admin-bar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .admin-label {
+      font-size: 12.5px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+      max-width: 720px;
+      margin-bottom: 14px;
+    }
+
+    .hero-bio {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      max-width: 740px;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .social-pill:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-surface-hover);
+    }
+
+    /* Controls & Filters */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-surface);
+    }
+
+    .filter-btn.active {
+      background: var(--bg-surface);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .search-input {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 7px 13px;
+      border-radius: 8px;
+      width: 240px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-input:focus {
+      border-color: var(--border-hover);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 17.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .section-count {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-surface-hover);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .badge-sinagerd {
+      background: var(--sinagerd-bg);
+      color: var(--sinagerd-text);
+    }
+
+    .badge-pmbok {
+      background: var(--pmbok-bg);
+      color: var(--pmbok-text);
+    }
+
+    .badge-hibrido {
+      background: var(--hybrid-bg);
+      color: var(--hybrid-text);
+    }
+
+    .card-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .card-excerpt {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+    }
+
+    .read-link {
+      color: var(--accent);
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .read-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Two-column Split for Tutorials & Links */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 820px) {
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .search-input {
+        width: 100%;
+      }
+    }
+
+    .list-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .list-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 15px 18px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .list-item:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-surface-hover);
+    }
+
+    .list-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .list-item-title {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .list-item-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .item-actions {
+      display: none;
+      gap: 8px;
+    }
+
+    body.is-editing .item-actions {
+      display: inline-flex;
+    }
+
+    .mini-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      cursor: pointer;
+    }
+
+    .mini-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+
+    .mini-btn.danger:hover {
+      color: #E5989B;
+      border-color: rgba(229, 152, 155, 0.35);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12.5px;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 12, 18, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 60;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      max-width: 620px;
+      width: 100%;
+      max-height: 86vh;
+      overflow-y: auto;
+      padding: 26px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--border-hover);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .empty-state {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      padding: 20px;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-lavender/25 selection:text-ink-primary min-h-screen flex flex-col">
+<body>
 
-    <!-- Notificación Toast Discreta -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-elevated text-ink-primary px-4 py-2.5 rounded-xl shadow-xl border border-white/[0.08] flex items-center gap-2.5 text-[13px] font-normal">
-            <span class="w-1.5 h-1.5 rounded-full bg-lavender"></span>
-            <span id="toast-message">Cambios guardados</span>
-        </div>
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span id="navBrandName">Lizbeth Velarde</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#articulos">Artículos</a>
+        <a href="#tutoriales">Tutoriales</a>
+        <a href="#enlaces">Enlaces de interés</a>
+      </nav>
+      <div id="adminTriggerSlot"></div>
     </div>
+  </header>
 
-    <!-- Header Minimalista y Sereno -->
-    <header class="sticky top-0 z-40 bg-canvas/90 backdrop-blur-md border-b border-white/[0.05]">
-        <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-            <!-- Identidad Profesional -->
-            <a href="#" class="flex items-center gap-3 min-w-0 group">
-                <div class="w-8 h-8 rounded-lg bg-surface border border-white/[0.08] flex items-center justify-center shrink-0 group-hover:border-lavender/40 transition-colors">
-                    <svg class="w-4 h-4 text-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
-                </div>
-                <div class="truncate">
-                    <span id="nav-author-name" class="block text-[14px] font-medium text-ink-primary tracking-[-0.01em] truncate">Lizbeth Velarde</span>
-                    <span class="block text-[12px] text-ink-muted truncate">Gestión de Riesgos · Normativa SINAGERD y PMBOK</span>
-                </div>
-            </a>
-
-            <!-- Navegación Editorial -->
-            <nav class="hidden md:flex items-center gap-7 text-[13px] font-normal text-ink-secondary">
-                <a href="#articulos" class="hover:text-ink-primary transition-colors">Artículos</a>
-                <a href="#tutoriales" class="hover:text-ink-primary transition-colors">Tutoriales</a>
-                <a href="#recursos" class="hover:text-ink-primary transition-colors">Recursos oficiales</a>
-            </nav>
-
-            <!-- Accesos Sociales & Modo Gestión Discreto -->
-            <div class="flex items-center gap-1.5 shrink-0">
-                <a id="nav-linkedin" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn" class="p-2 text-ink-secondary hover:text-ink-primary hover:bg-surface rounded-lg transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                </a>
-                <a id="nav-youtube" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" title="Canal de YouTube" class="p-2 text-ink-secondary hover:text-ink-primary hover:bg-surface rounded-lg transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-
-                <div class="h-4 w-px bg-white/[0.07] mx-1"></div>
-
-                <button id="manage-toggle-btn" onclick="toggleManageMode()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12.5px] font-medium text-ink-secondary hover:text-ink-primary bg-surface/70 hover:bg-surface border border-white/[0.06] transition-colors cursor-pointer">
-                    <svg class="w-3.5 h-3.5 text-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    <span id="manage-toggle-label">Gestionar</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Barra Desplegable de Gestión (Oculta en vista de lectura pública) -->
-        <div id="manage-toolbar" class="hidden bg-surface/95 border-t border-white/[0.06]">
-            <div class="max-w-5xl mx-auto px-5 sm:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3 text-[12.5px]">
-                <span class="text-ink-muted">Modo edición activo — los cambios se guardan en este navegador.</span>
-                <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="openResourceModal('article')" class="px-3 py-1 rounded-lg bg-lavender/15 hover:bg-lavender/25 text-ink-primary border border-lavender/25 transition-colors cursor-pointer">
-                        + Nuevo recurso
-                    </button>
-                    <button onclick="openProfileModal()" class="px-3 py-1 rounded-lg bg-elevated hover:bg-midnight text-ink-secondary hover:text-ink-primary border border-white/[0.07] transition-colors cursor-pointer">
-                        Editar perfil
-                    </button>
-                    <button onclick="exportStandaloneHTML()" class="px-3 py-1 rounded-lg bg-elevated hover:bg-midnight text-ink-secondary hover:text-ink-primary border border-white/[0.07] transition-colors cursor-pointer">
-                        Exportar index.html
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Contenido Principal con Proporciones Serenas -->
-    <main class="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-14 flex-1 w-full">
-
-        <!-- HERO SOBRIO Y DE AUTORIDAD TÉCNICA -->
-        <section class="max-w-3xl space-y-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lavender-tint border border-lavender/20 text-[12.5px] font-normal text-lavender">
-                <span class="w-1.5 h-1.5 rounded-full bg-lavender"></span>
-                <span>Divulgación técnica y experiencia aplicada</span>
-            </div>
-
-            <div class="space-y-3">
-                <h1 id="hero-author-name" class="text-[25px] sm:text-[28px] font-semibold text-ink-primary tracking-[-0.015em] leading-[1.3]">
-                    Lizbeth Velarde
-                </h1>
-                <p id="hero-author-role" class="text-[15.5px] font-medium text-lavender/90 leading-[1.45]">
-                    Gestión del Riesgo de Desastres (Normativa SINAGERD) y Gestión de Riesgos en Proyectos (enfoque PMBOK aplicado)
-                </p>
-                <p id="hero-author-bio" class="text-[14px] font-normal text-ink-secondary leading-[1.68] max-w-2xl pt-1">
-                    Espacio profesional dedicado al análisis técnico en evaluación de peligros, vulnerabilidades y reducción del riesgo bajo normativa SINAGERD, complementado con criterios prácticos de gestión de riesgos en proyectos desarrollados desde la experiencia real en campo y gabinete bajo buenas prácticas del PMBOK.
-                </p>
-            </div>
-
-            <!-- Enlaces Principales -->
-            <div class="flex flex-wrap items-center gap-3 pt-2">
-                <a id="hero-linkedin-btn" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-lavender/15 hover:bg-lavender/22 text-ink-primary border border-lavender/30 text-[13px] font-medium px-4 py-2 rounded-xl transition-colors">
-                    <svg class="w-3.5 h-3.5 fill-current text-lavender" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                    <span>Conectar en LinkedIn</span>
-                </a>
-                <a id="hero-youtube-btn" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-surface hover:bg-elevated text-ink-secondary hover:text-ink-primary border border-white/[0.07] text-[13px] font-medium px-4 py-2 rounded-xl transition-colors">
-                    <svg class="w-3.5 h-3.5 fill-current text-lavender/80" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    <span>Canal de YouTube</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- BARRA DE FILTROS Y BUSCADOR SUTIL -->
-        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 pb-4 border-b border-white/[0.06]">
-            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar" role="tablist">
-                <button onclick="setFilter('all')" data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-[13px] font-medium transition-colors shrink-0 cursor-pointer bg-lavender/15 text-ink-primary border border-lavender/25">
-                    Todo
-                </button>
-                <button onclick="setFilter('Normativa SINAGERD')" data-filter="Normativa SINAGERD" class="filter-btn px-3.5 py-1.5 rounded-lg text-[13px] font-normal transition-colors shrink-0 cursor-pointer text-ink-secondary hover:text-ink-primary hover:bg-surface border border-transparent">
-                    Normativa SINAGERD
-                </button>
-                <button onclick="setFilter('PMBOK / Proyectos')" data-filter="PMBOK / Proyectos" class="filter-btn px-3.5 py-1.5 rounded-lg text-[13px] font-normal transition-colors shrink-0 cursor-pointer text-ink-secondary hover:text-ink-primary hover:bg-surface border border-transparent">
-                    PMBOK / Proyectos
-                </button>
-                <button onclick="setFilter('Enfoque Integrado')" data-filter="Enfoque Integrado" class="filter-btn px-3.5 py-1.5 rounded-lg text-[13px] font-normal transition-colors shrink-0 cursor-pointer text-ink-secondary hover:text-ink-primary hover:bg-surface border border-transparent">
-                    Enfoque Integrado
-                </button>
-            </div>
-
-            <div class="relative w-full sm:w-64">
-                <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Buscar por tema o norma..." class="w-full pl-8 pr-3.5 py-1.5 bg-surface border border-white/[0.07] focus:border-lavender/40 rounded-xl text-[13px] text-ink-primary placeholder-ink-muted outline-none transition-colors">
-                <svg class="w-3.5 h-3.5 text-ink-muted absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 1: ARTÍCULOS Y ANÁLISIS TÉCNICOS (2 COLUMNAS AMPLIAS) -->
-        <section id="articulos" class="scroll-mt-24 space-y-5">
-            <div class="flex items-baseline justify-between gap-4">
-                <div>
-                    <h2 class="text-[18px] font-medium text-ink-primary tracking-[-0.01em]">Artículos y Análisis Técnicos</h2>
-                    <p class="text-[13px] text-ink-muted mt-0.5">Criterios metodológicos sobre EVAR, normativa territorial y gestión aplicada de riesgos.</p>
-                </div>
-                <button onclick="openResourceModal('article')" class="manage-only hidden text-[12.5px] font-medium text-lavender hover:text-ink-primary transition-colors cursor-pointer shrink-0">
-                    + Añadir artículo
-                </button>
-            </div>
-
-            <div id="articles-grid" class="grid md:grid-cols-2 gap-5">
-                <!-- Renderizado dinámico -->
-            </div>
-        </section>
-
-        <!-- SECCIÓN 2: TUTORIALES Y SESIONES EN YOUTUBE (LISTA ESTRUCTURADA Y LIMPIA) -->
-        <section id="tutoriales" class="scroll-mt-24 space-y-5">
-            <div class="flex items-baseline justify-between gap-4">
-                <div>
-                    <h2 class="text-[18px] font-medium text-ink-primary tracking-[-0.01em]">Tutoriales y Sesiones en YouTube</h2>
-                    <p class="text-[13px] text-ink-muted mt-0.5">Guías prácticas, modelamiento SIG y herramientas de seguimiento disponibles en el canal.</p>
-                </div>
-                <button onclick="openResourceModal('tutorial')" class="manage-only hidden text-[12.5px] font-medium text-lavender hover:text-ink-primary transition-colors cursor-pointer shrink-0">
-                    + Añadir tutorial
-                </button>
-            </div>
-
-            <div id="tutorials-list" class="divide-y divide-white/[0.06] bg-surface border border-white/[0.06] rounded-2xl overflow-hidden">
-                <!-- Renderizado dinámico -->
-            </div>
-        </section>
-
-        <!-- SECCIÓN 3: RECURSOS Y PLATAFORMAS OFICIALES (DIRECTORIO LIMPIO) -->
-        <section id="recursos" class="scroll-mt-24 space-y-5">
-            <div class="flex items-baseline justify-between gap-4">
-                <div>
-                    <h2 class="text-[18px] font-medium text-ink-primary tracking-[-0.01em]">Recursos y Plataformas Oficiales</h2>
-                    <p class="text-[13px] text-ink-muted mt-0.5">Visores geoespaciales del SINAGERD, entidades técnico-científicas y marcos de referencia.</p>
-                </div>
-                <button onclick="openResourceModal('link')" class="manage-only hidden text-[12.5px] font-medium text-lavender hover:text-ink-primary transition-colors cursor-pointer shrink-0">
-                    + Añadir recurso
-                </button>
-            </div>
-
-            <div id="links-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Renderizado dinámico -->
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer Discreto y Armónico -->
-    <footer class="border-t border-white/[0.05] bg-canvas mt-16">
-        <div class="max-w-5xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-ink-muted">
-            <div class="flex items-center gap-2">
-                <span id="footer-author-name" class="text-ink-secondary font-medium">Lizbeth Velarde</span>
-                <span>·</span>
-                <span>© <span id="current-year"></span> Divulgación en Gestión de Riesgos</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-5">
-                <a id="footer-linkedin" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-ink-primary transition-colors">LinkedIn</a>
-                <a id="footer-youtube" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-ink-primary transition-colors">YouTube</a>
-                <button onclick="exportStandaloneHTML()" class="manage-only hidden hover:text-lavender transition-colors cursor-pointer">Exportar HTML</button>
-                <button onclick="resetDemoData()" class="manage-only hidden hover:text-ink-secondary transition-colors cursor-pointer">Restaurar iniciales</button>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===================================================================== -->
-    <!-- MODALES EDITORIALES SUAVIZADOS                                        -->
-    <!-- ===================================================================== -->
-
-    <!-- 1. Modal Lector de Artículo -->
-    <div id="article-reader-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-canvas/85 backdrop-blur-sm p-4">
-        <div class="min-h-full flex items-center justify-center">
-            <div class="bg-surface w-full max-w-2xl rounded-2xl shadow-2xl border border-white/[0.08] overflow-hidden">
-                <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-                    <div class="flex items-center gap-2.5 text-[12.5px]">
-                        <span id="reader-badge" class="px-2.5 py-0.5 rounded-md font-normal">Normativa SINAGERD</span>
-                        <span class="text-ink-muted" id="reader-date">14 Nov 2026</span>
-                        <span class="text-ink-muted">·</span>
-                        <span class="text-ink-muted" id="reader-readtime">6 min de lectura</span>
-                    </div>
-                    <button onclick="closeModal('article-reader-modal')" class="p-1.5 text-ink-muted hover:text-ink-primary rounded-lg hover:bg-white/[0.04] cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-                <div class="p-6 sm:p-8 space-y-5 max-h-[72vh] overflow-y-auto">
-                    <h3 id="reader-title" class="text-[20px] sm:text-[22px] font-semibold text-ink-primary leading-[1.35] tracking-[-0.01em]">Título</h3>
-                    <p class="text-[12.5px] text-ink-muted">Por <span id="reader-author-name" class="text-ink-secondary font-medium">Lizbeth Velarde</span></p>
-                    <div id="reader-content" class="text-ink-secondary text-[14px] leading-[1.75] space-y-4 pt-4 border-t border-white/[0.06]">
-                        <!-- Párrafos -->
-                    </div>
-                </div>
-                <div class="px-6 py-3.5 bg-canvas/40 border-t border-white/[0.06] flex items-center justify-between gap-3">
-                    <a id="reader-linkedin-link" href="#" target="_blank" rel="noopener noreferrer" class="text-[13px] font-medium text-lavender hover:text-ink-primary transition-colors">
-                        Continuar conversación en LinkedIn →
-                    </a>
-                    <button onclick="closeModal('article-reader-modal')" class="px-4 py-1.5 bg-elevated hover:bg-midnight text-ink-secondary hover:text-ink-primary text-[12.5px] font-medium rounded-lg border border-white/[0.06] transition-colors cursor-pointer">
-                        Cerrar lectura
-                    </button>
-                </div>
-            </div>
-        </div>
+  <!-- Private Admin Bar (only visible with ?admin=bendecida) -->
+  <div id="adminBar" class="admin-bar">
+    <div class="admin-bar-inner">
+      <span class="admin-label">Modo administración activo</span>
+      <div class="admin-actions">
+        <button class="btn-primary" onclick="openResourceModal('article')">+ Artículo</button>
+        <button class="btn-primary" onclick="openResourceModal('tutorial')">+ Tutorial</button>
+        <button class="btn-primary" onclick="openResourceModal('link')">+ Enlace</button>
+        <button class="btn-ghost" onclick="openProfileModal()">Editar perfil</button>
+        <button class="btn-ghost" onclick="exportHTML()">Exportar index.html</button>
+      </div>
     </div>
+  </div>
 
-    <!-- 2. Modal Crear / Editar Recurso -->
-    <div id="resource-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-canvas/85 backdrop-blur-sm p-4">
-        <div class="min-h-full flex items-center justify-center">
-            <div class="bg-surface w-full max-w-lg rounded-2xl shadow-2xl border border-white/[0.08] overflow-hidden">
-                <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-                    <h3 id="resource-modal-title" class="font-medium text-[15px] text-ink-primary">Nuevo recurso</h3>
-                    <button onclick="closeModal('resource-modal')" class="p-1.5 text-ink-muted hover:text-ink-primary rounded-lg cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </div>
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-eyebrow" id="heroEyebrow">Divulgación técnica · Normativa SINAGERD y PMBOK</p>
+      <h1 class="hero-title" id="heroTitle">Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos</h1>
+      <p class="hero-bio" id="heroBio">
+        Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo de Desastres bajo la normativa SINAGERD y la gestión de riesgos en proyectos aplicando los lineamientos del PMBOK desde la experiencia real en campo e infraestructura.
+      </p>
+      <div class="hero-links">
+        <a id="linkedinLink" href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-pill">
+          <span>LinkedIn</span>
+          <span style="color: var(--text-muted);">↗</span>
+        </a>
+        <a id="youtubeLink" href="https://www.youtube.com" target="_blank" rel="noopener" class="social-pill">
+          <span>Canal de YouTube</span>
+          <span style="color: var(--text-muted);">↗</span>
+        </a>
+      </div>
+    </section>
 
-                <form id="resource-form" onsubmit="handleResourceSubmit(event)" class="p-6 space-y-4">
-                    <div id="type-selector-wrap" class="grid grid-cols-3 gap-1.5 p-1 bg-canvas border border-white/[0.06] rounded-xl">
-                        <button type="button" onclick="switchFormType('article')" id="tab-type-article" class="type-tab py-1.5 text-[12.5px] font-medium rounded-lg bg-elevated text-ink-primary cursor-pointer">Artículo</button>
-                        <button type="button" onclick="switchFormType('tutorial')" id="tab-type-tutorial" class="type-tab py-1.5 text-[12.5px] font-normal rounded-lg text-ink-secondary hover:text-ink-primary cursor-pointer">Tutorial YT</button>
-                        <button type="button" onclick="switchFormType('link')" id="tab-type-link" class="type-tab py-1.5 text-[12.5px] font-normal rounded-lg text-ink-secondary hover:text-ink-primary cursor-pointer">Plataforma</button>
-                    </div>
-                    <input type="hidden" id="form-resource-type" value="article">
-                    <input type="hidden" id="form-edit-id" value="">
+    <!-- Filters & Search -->
+    <section class="controls">
+      <div class="filter-group" id="filterGroup">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="sinagerd">Normativa SINAGERD</button>
+        <button class="filter-btn" data-filter="pmbok">PMBOK (Experiencia)</button>
+        <button class="filter-btn" data-filter="hibrido">Enfoque Integrado</button>
+      </div>
+      <input type="search" id="searchInput" class="search-input" placeholder="Buscar por tema o palabra clave..." />
+    </section>
 
-                    <div class="grid sm:grid-cols-2 gap-3.5">
-                        <div>
-                            <label class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Enfoque temático</label>
-                            <select id="form-category" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none">
-                                <option value="Normativa SINAGERD">Normativa SINAGERD</option>
-                                <option value="PMBOK / Proyectos">PMBOK / Proyectos</option>
-                                <option value="Enfoque Integrado">Enfoque Integrado</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label id="label-extra-1" class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Tiempo de lectura</label>
-                            <input type="text" id="input-extra-1" placeholder="Ej. 5 min" class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none">
-                        </div>
-                    </div>
+    <!-- Articles -->
+    <section class="section" id="articulos">
+      <div class="section-header">
+        <h2 class="section-title">Artículos y notas técnicas</h2>
+        <span class="section-count" id="articlesCount"></span>
+      </div>
+      <div class="articles-grid" id="articlesContainer"></div>
+    </section>
 
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Título *</label>
-                        <input type="text" id="form-title" required placeholder="Título claro y profesional..." class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none">
-                    </div>
-
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Resumen breve *</label>
-                        <textarea id="form-summary" rows="2" required placeholder="Síntesis en 1 o 2 líneas..." class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none"></textarea>
-                    </div>
-
-                    <div id="field-article-body">
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Desarrollo del artículo</label>
-                        <textarea id="form-body" rows="4" placeholder="Escribe los párrafos del artículo aquí..." class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none"></textarea>
-                    </div>
-
-                    <div id="field-tutorial-meta">
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Herramientas o tema clave</label>
-                        <input type="text" id="form-tools" placeholder="Ej. QGIS, Excel, SIGRID" class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none">
-                    </div>
-
-                    <div>
-                        <label id="label-url" class="block text-[12.5px] font-medium text-ink-secondary mb-1.5">Enlace externo</label>
-                        <input type="url" id="form-url" placeholder="https://..." class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary placeholder-ink-muted focus:border-lavender/50 outline-none">
-                    </div>
-
-                    <div class="pt-3 flex justify-end gap-2.5 border-t border-white/[0.06]">
-                        <button type="button" onclick="closeModal('resource-modal')" class="px-4 py-1.5 text-[13px] text-ink-secondary hover:text-ink-primary cursor-pointer">Cancelar</button>
-                        <button type="submit" class="px-4 py-1.5 bg-lavender/20 hover:bg-lavender/30 text-ink-primary border border-lavender/30 text-[13px] font-medium rounded-xl transition-colors cursor-pointer">Guardar</button>
-                    </div>
-                </form>
-            </div>
+    <!-- Tutorials & Official Links -->
+    <section class="split-grid">
+      <div id="tutoriales">
+        <div class="section-header">
+          <h2 class="section-title">Tutoriales en YouTube</h2>
+          <span class="section-count" id="tutorialsCount"></span>
         </div>
-    </div>
+        <div class="list-stack" id="tutorialsContainer"></div>
+      </div>
 
-    <!-- 3. Modal Editar Perfil Profesional -->
-    <div id="profile-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-canvas/85 backdrop-blur-sm p-4">
-        <div class="min-h-full flex items-center justify-center">
-            <div class="bg-surface w-full max-w-md rounded-2xl shadow-2xl border border-white/[0.08] overflow-hidden">
-                <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
-                    <h3 class="font-medium text-[15px] text-ink-primary">Editar perfil profesional</h3>
-                    <button onclick="closeModal('profile-modal')" class="p-1.5 text-ink-muted hover:text-ink-primary rounded-lg cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-                <form onsubmit="handleProfileSave(event)" class="p-6 space-y-3.5">
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1">Nombre profesional</label>
-                        <input type="text" id="prof-name" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1">Titular / Especialidad</label>
-                        <input type="text" id="prof-role" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1">Presentación profesional</label>
-                        <textarea id="prof-bio" rows="3" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1">URL de LinkedIn</label>
-                        <input type="url" id="prof-linkedin" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-[12.5px] font-medium text-ink-secondary mb-1">URL de Canal de YouTube</label>
-                        <input type="url" id="prof-youtube" required class="w-full px-3 py-2 bg-canvas border border-white/[0.08] rounded-xl text-[13px] text-ink-primary focus:border-lavender/50 outline-none">
-                    </div>
-                    <div class="pt-3 flex justify-end gap-2.5 border-t border-white/[0.06]">
-                        <button type="button" onclick="closeModal('profile-modal')" class="px-4 py-1.5 text-[13px] text-ink-secondary hover:text-ink-primary cursor-pointer">Cancelar</button>
-                        <button type="submit" class="px-4 py-1.5 bg-lavender/20 hover:bg-lavender/30 text-ink-primary border border-lavender/30 text-[13px] font-medium rounded-xl transition-colors cursor-pointer">Actualizar</button>
-                    </div>
-                </form>
-            </div>
+      <div id="enlaces">
+        <div class="section-header">
+          <h2 class="section-title">Enlaces de interés</h2>
+          <span class="section-count" id="linksCount"></span>
         </div>
+        <div class="list-stack" id="linksContainer"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span id="footerText">Lizbeth Velarde · Divulgación en Gestión de Riesgos (Normativa SINAGERD & PMBOK)</span>
+  </footer>
+
+  <!-- Reader Modal -->
+  <div id="readerModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'readerModal')">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <div id="readerBadge" style="margin-bottom: 8px;"></div>
+          <h3 id="readerTitle" class="modal-title"></h3>
+        </div>
+        <button class="close-btn" onclick="closeModal('readerModal')">&times;</button>
+      </div>
+      <div id="readerBody" class="modal-body"></div>
     </div>
+  </div>
 
-    <!-- Lógica de la Aplicación -->
-    <script>
-        const DEFAULT_DATA = {
-            profile: {
-                name: "Lizbeth Velarde",
-                role: "Gestión del Riesgo de Desastres (Normativa SINAGERD) y Gestión de Riesgos en Proyectos (enfoque PMBOK aplicado)",
-                bio: "Espacio profesional dedicado al análisis técnico en evaluación de peligros, vulnerabilidades y reducción del riesgo bajo normativa SINAGERD, complementado con criterios prácticos de gestión de riesgos en proyectos desarrollados desde la experiencia real en campo y gabinete bajo buenas prácticas del PMBOK.",
-                linkedin: "https://www.linkedin.com",
-                youtube: "https://www.youtube.com"
-            },
-            articles: [
-                {
-                    id: "art-1",
-                    category: "Normativa SINAGERD",
-                    date: "14 Nov 2026",
-                    readTime: "6 min",
-                    title: "Evaluación de Riesgos (EVAR) bajo normativa SINAGERD: Criterios clave para evitar observaciones técnicas",
-                    summary: "Revisión de los puntos críticos al seleccionar parámetros de peligro, sustentar matrices de comparación de pares y formular medidas de reducción.",
-                    body: [
-                        "Elaborar una Evaluación de Riesgos Originados por Fenómenos Naturales (EVAR) en el marco de la normativa SINAGERD demanda consistencia técnica entre el diagnóstico físico del territorio y la toma de decisiones de inversión o control urbano.",
-                        "1. Pertinencia de parámetros de evaluación: Seleccionar únicamente descriptores que expliquen el comportamiento físico real del fenómeno en el ámbito de estudio, evitando variables redundantes.",
-                        "2. Trazabilidad en matrices de Saaty: Toda ponderación debe respaldarse con evidencia técnico-científica de entidades oficiales (INGEMMET, SENAMHI, ANA, IGP) y registros históricos verificables.",
-                        "3. Viabilidad de medidas estructurales y no estructurales: Las recomendaciones deben formularse con claridad técnica para facilitar su incorporación en proyectos de inversión o planes de prevención."
-                    ],
-                    url: "https://www.linkedin.com"
-                },
-                {
-                    id: "art-2",
-                    category: "PMBOK / Proyectos",
-                    date: "02 Nov 2026",
-                    readTime: "5 min",
-                    title: "Registro de Riesgos en Proyectos: Cómo convertir el enfoque PMBOK en gestión operativa real",
-                    summary: "Lineamientos prácticos para estructurar matrices de probabilidad e impacto útiles durante la ejecución de obra y gestión contractual.",
-                    body: [
-                        "En la ejecución diaria de proyectos, el Registro de Riesgos suele perder utilidad cuando se elabora únicamente como un requisito documental al inicio del servicio. Desde la experiencia práctica aplicando los lineamientos del PMBOK, la clave reside en su operatividad.",
-                        "Establecer umbrales claros de impacto en plazo, costo y alcance permite diferenciar eventos menores de amenazas críticas que requieren reservas de contingencia o planes de respuesta inmediatos.",
-                        "La revisión quincenal junto a los responsables técnicos asegura que los disparadores (triggers) se monitoreen de forma preventiva."
-                    ],
-                    url: "https://www.linkedin.com"
-                },
-                {
-                    id: "art-3",
-                    category: "Enfoque Integrado",
-                    date: "18 Oct 2026",
-                    readTime: "7 min",
-                    title: "Articulación entre el análisis EVAR territorial y la gestión de riesgos de ejecución",
-                    summary: "Cómo integrar el diagnóstico de peligros naturales de la normativa SINAGERD con la gestión de incertidumbres constructivas y logísticas del proyecto.",
-                    body: [
-                        "Los proyectos de infraestructura enfrentan simultáneamente amenazas derivadas del entorno físico-natural y riesgos propios de su gestión técnica, contractual y logística.",
-                        "Mientras la normativa SINAGERD permite caracterizar la susceptibilidad y vulnerabilidad del emplazamiento frente a peligros naturales, el enfoque PMBOK ordena el seguimiento de riesgos operativos durante el ciclo de vida del proyecto.",
-                        "Integrar ambas miradas desde la etapa de formulación fortalece la resiliencia de la infraestructura y mejora la estimación de contingencias."
-                    ],
-                    url: "https://www.linkedin.com"
-                },
-                {
-                    id: "art-4",
-                    category: "Normativa SINAGERD",
-                    date: "04 Oct 2026",
-                    readTime: "5 min",
-                    title: "Análisis de vulnerabilidad en centros poblados: Dimensiones social, económica y ambiental",
-                    summary: "Consideraciones prácticas para el levantamiento de fichas de campo y la ponderación de exposición, fragilidad y resiliencia.",
-                    body: [
-                        "El levantamiento de información primaria en campo constituye la base para determinar niveles de vulnerabilidad representativos de la realidad local.",
-                        "Una adecuada delimitación de manzanas o lotes expuestos, sumada al registro fotográfico georreferenciado del estado de conservación y materialidad de las edificaciones, reduce significativamente la subjetividad en el gabinete."
-                    ],
-                    url: "https://www.linkedin.com"
-                }
-            ],
-            tutorials: [
-                {
-                    id: "tut-1",
-                    category: "Normativa SINAGERD",
-                    duration: "18:45",
-                    tools: "Excel · Manual EVAR",
-                    title: "Cálculo del Proceso Analítico Jerárquico (Saaty) y verificación de Relación de Consistencia",
-                    summary: "Construcción paso a paso de matrices de comparación de pares y validación de consistencia (RC < 0.10) para parámetros y descriptores.",
-                    url: "https://www.youtube.com"
-                },
-                {
-                    id: "tut-2",
-                    category: "PMBOK / Proyectos",
-                    duration: "14:20",
-                    tools: "Excel · Plantilla práctica",
-                    title: "Diseño operativo de un Registro de Riesgos bajo estructura Causa – Evento – Impacto",
-                    summary: "Metodología aplicada para redactar riesgos de proyecto con precisión, calificar exposición y asignar dueños de respuesta.",
-                    url: "https://www.youtube.com"
-                },
-                {
-                    id: "tut-3",
-                    category: "Enfoque Integrado",
-                    duration: "22:10",
-                    tools: "SIGRID · QGIS",
-                    title: "Extracción de capas geoespaciales en SIGRID y diagnóstico de exposición en obras lineales",
-                    summary: "Flujo de trabajo SIG para cruzar cartografía oficial de peligros con trazos de infraestructura proyectada.",
-                    url: "https://www.youtube.com"
-                }
-            ],
-            links: [
-                {
-                    id: "lnk-1",
-                    category: "Normativa SINAGERD",
-                    tag: "Visor SIG",
-                    title: "SIGRID — Sistema de Información para la GRD",
-                    summary: "Cartografía oficial de estudios EVAR, peligros naturales y elementos expuestos a nivel nacional.",
-                    url: "https://sigrid.cenepred.gob.pe/"
-                },
-                {
-                    id: "lnk-2",
-                    category: "Normativa SINAGERD",
-                    tag: "Marco Legal",
-                    title: "Ley N° 29664 y Reglamento del SINAGERD",
-                    summary: "Marco normativo, lineamientos técnicos y guías metodológicas para la gestión del riesgo de desastres.",
-                    url: "https://www.gob.pe/sinagerd"
-                },
-                {
-                    id: "lnk-3",
-                    category: "Normativa SINAGERD",
-                    tag: "Geología",
-                    title: "GEOCATMIN (INGEMMET) — Peligros Geológicos",
-                    summary: "Inventario nacional de movimientos en masa, susceptibilidad y cartografía geológica.",
-                    url: "https://geocatmin.ingemmet.gob.pe/"
-                },
-                {
-                    id: "lnk-4",
-                    category: "Normativa SINAGERD",
-                    tag: "Clima",
-                    title: "SENAMHI — Monitoreo Hidrometeorológico",
-                    summary: "Umbrales de precipitación, avisos meteorológicos e información hidrológica oficial.",
-                    url: "https://www.senamhi.gob.pe/"
-                },
-                {
-                    id: "lnk-5",
-                    category: "PMBOK / Proyectos",
-                    tag: "Referencia",
-                    title: "PMI — Estándar de Gestión de Riesgos en Proyectos",
-                    summary: "Principios y dominios de desempeño para el tratamiento de la incertidumbre en proyectos.",
-                    url: "https://www.pmi.org/"
-                },
-                {
-                    id: "lnk-6",
-                    category: "Enfoque Integrado",
-                    tag: "Inversión",
-                    title: "Invierte.pe (MEF) — Gestión de Riesgos en Inversiones",
-                    summary: "Lineamientos para incorporar el análisis de riesgos en proyectos de inversión pública.",
-                    url: "https://www.mef.gob.pe/"
-                }
-            ]
-        };
+  <!-- Resource Editor Modal -->
+  <div id="resourceModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'resourceModal')">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="resourceModalTitle" class="modal-title">Agregar recurso</h3>
+        <button class="close-btn" onclick="closeModal('resourceModal')">&times;</button>
+      </div>
+      <form id="resourceForm" onsubmit="saveResource(event)">
+        <input type="hidden" id="resType" />
+        <input type="hidden" id="resId" />
+        <div class="form-group">
+          <label class="form-label">Título</label>
+          <input type="text" id="resTitle" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Enfoque temático</label>
+          <select id="resCategory" class="form-control">
+            <option value="sinagerd">Normativa SINAGERD</option>
+            <option value="pmbok">PMBOK (Experiencia)</option>
+            <option value="hibrido">Enfoque Integrado</option>
+          </select>
+        </div>
+        <div class="form-group" id="resUrlGroup">
+          <label class="form-label" id="resUrlLabel">Enlace (URL)</label>
+          <input type="url" id="resUrl" class="form-control" placeholder="https://..." />
+        </div>
+        <div class="form-group">
+          <label class="form-label" id="resSummaryLabel">Resumen breve</label>
+          <textarea id="resSummary" class="form-control" style="min-height: 75px;" required></textarea>
+        </div>
+        <div class="form-group" id="resContentGroup">
+          <label class="form-label">Contenido completo del artículo</label>
+          <textarea id="resContent" class="form-control" style="min-height: 150px;"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost" onclick="closeModal('resourceModal')">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-        const STORAGE_KEY = 'risk_portal_lizbeth_v5';
-        let appData = {};
-        let currentFilter = 'all';
-        let searchQuery = '';
-        let manageMode = false;
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'profileModal')">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Configurar perfil y redes</h3>
+        <button class="close-btn" onclick="closeModal('profileModal')">&times;</button>
+      </div>
+      <form onsubmit="saveProfile(event)">
+        <div class="form-group">
+          <label class="form-label">Nombre profesional</label>
+          <input type="text" id="profName" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Titular principal</label>
+          <input type="text" id="profTitle" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Presentación breve</label>
+          <textarea id="profBio" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">URL de LinkedIn</label>
+          <input type="url" id="profLinkedin" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">URL de Canal de YouTube</label>
+          <input type="url" id="profYoutube" class="form-control" required />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost" onclick="closeModal('profileModal')">Cancelar</button>
+          <button type="submit" class="btn-primary">Actualizar perfil</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-        function initApp() {
-            try {
-                const saved = localStorage.getItem(STORAGE_KEY);
-                if (saved) {
-                    appData = JSON.parse(saved);
-                } else {
-                    appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-                    saveData();
-                }
-            } catch (e) {
-                appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-            }
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            renderProfile();
-            renderAll();
+  <script id="initial-data" type="application/json">
+  {
+    "profile": {
+      "name": "Lizbeth Velarde",
+      "title": "Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos",
+      "bio": "Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo de Desastres bajo la normativa SINAGERD y la gestión de riesgos en proyectos aplicando los lineamientos del PMBOK desde la experiencia real en campo e infraestructura.",
+      "linkedin": "https://www.linkedin.com",
+      "youtube": "https://www.youtube.com"
+    },
+    "articles": [
+      {
+        "id": "art-1",
+        "title": "Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD",
+        "category": "sinagerd",
+        "date": "Noviembre 2026",
+        "summary": "Síntesis práctica sobre estimación, prevención, reducción, preparación, respuesta, rehabilitación y reconstrucción aplicados a la planificación territorial.",
+        "content": "La Ley N.° 29664 y su reglamento establecen el marco del Sistema Nacional de Gestión del Riesgo de Desastres (SINAGERD) mediante tres componentes (prospectivo, correctivo y reactivo) articulados en siete procesos fundamentales.\n\n1. Estimación del riesgo: Identificación de peligros, análisis de vulnerabilidades y cálculo de niveles de riesgo.\n2. Prevención del riesgo: Evitar la generación de nuevas condiciones de vulnerabilidad en el territorio.\n3. Reducción del riesgo: Intervenciones estructurales y no estructurales sobre vulnerabilidades ya existentes.\n4. Preparación: Planeamiento y fortalecimiento de capacidades para una respuesta oportuna.\n5. Respuesta: Atención inmediata ante la inminencia u ocurrencia de una emergencia.\n6. Rehabilitación: Restablecimiento temporal de servicios básicos indispensables.\n7. Reconstrucción: Recuperación sostenible de infraestructura y medios de vida tras el impacto."
+      },
+      {
+        "id": "art-2",
+        "title": "Matriz de probabilidad e impacto: lecciones prácticas desde la gestión de proyectos PMBOK",
+        "category": "pmbok",
+        "date": "Noviembre 2026",
+        "summary": "Cómo estructurar un registro de riesgos accionable en proyectos de ingeniería sin caer en matrices genéricas desconectadas del cronograma y presupuesto.",
+        "content": "En la práctica de proyectos de infraestructura, uno de los errores más frecuentes es construir registros de riesgos estáticos que no dialogan con la ruta crítica ni con las reservas de contingencia.\n\nDesde la experiencia aplicada con el enfoque del PMBOK:\n- Define umbrales claros de probabilidad e impacto antes de calificar cada riesgo.\n- Redacta cada riesgo con estructura causa–evento–efecto para evitar ambigüedades.\n- Asigna un dueño de riesgo con capacidad real de ejecutar el plan de respuesta (evitar, transferir, mitigar o aceptar).\n- Revisa los disparadores (triggers) en cada reunión de seguimiento semanal."
+      },
+      {
+        "id": "art-3",
+        "title": "Articulando el análisis de peligros SINAGERD con la gestión de riesgos de obra",
+        "category": "hibrido",
+        "date": "Noviembre 2026",
+        "summary": "Puente metodológico entre los estudios de peligro sísmico o hidrometeorológico y el control de riesgos contractuales durante la ejecución de proyectos.",
+        "content": "Cuando un proyecto de inversión pública o privada incorpora desde la formulación los criterios de evaluación de riesgos bajo normativa SINAGERD, se reducen significativamente los eventos imprevistos durante la etapa de ejecución.\n\nIntegrar ambos mundos permite traducir peligros naturales del entorno (sismicidad, movimientos en masa, lluvias intensas) en planes concretos de mitigación dentro del plan de gestión de riesgos del proyecto."
+      }
+    ],
+    "tutorials": [
+      {
+        "id": "tut-1",
+        "title": "Cómo estructurar un Registro de Riesgos efectivo en Excel desde cero",
+        "category": "pmbok",
+        "url": "https://www.youtube.com",
+        "summary": "Paso a paso práctico para configurar escalas, exposición al riesgo y seguimiento de respuestas."
+      },
+      {
+        "id": "tut-2",
+        "title": "Consulta de información territorial y peligros en plataformas oficiales SINAGERD",
+        "category": "sinagerd",
+        "url": "https://www.youtube.com",
+        "summary": "Guía rápida para recopilar información base de peligros naturales en estudios preliminares."
+      }
+    ],
+    "links": [
+      {
+        "id": "lnk-1",
+        "title": "SIGRID — Sistema de Información para la Gestión del Riesgo de Desastres",
+        "category": "sinagerd",
+        "url": "https://sigrid.cenepred.gob.pe/",
+        "summary": "Plataforma geoespacial oficial con mapas de peligros, vulnerabilidades y estudios."
+      },
+      {
+        "id": "lnk-2",
+        "title": "Portal Normativo SINAGERD",
+        "category": "sinagerd",
+        "url": "https://www.gob.pe/sinagerd",
+        "summary": "Marco legal, lineamientos técnicos y documentos oficiales del sistema nacional."
+      },
+      {
+        "id": "lnk-3",
+        "title": "Project Management Institute (PMI) — Estándares PMBOK",
+        "category": "pmbok",
+        "url": "https://www.pmi.org/",
+        "summary": "Referencia internacional de buenas prácticas en dirección y riesgos de proyectos."
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    const STORAGE_KEY = 'lizbeth_risk_portal_v1';
+    const ADMIN_SECRET = 'bendecida';
+    let state = loadState();
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let isAdmin = false;
+
+    function loadState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try { return JSON.parse(saved); } catch (e) {}
+      }
+      return JSON.parse(document.getElementById('initial-data').textContent);
+    }
+
+    function persistState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function checkAdminAccess() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('admin') === ADMIN_SECRET) {
+        enableAdminMode();
+      }
+    }
+
+    function enableAdminMode() {
+      isAdmin = true;
+      const slot = document.getElementById('adminTriggerSlot');
+      slot.innerHTML = `<button class="btn-ghost" onclick="toggleEditControls()">Gestionar</button>`;
+      document.getElementById('adminBar').classList.add('active');
+      document.body.classList.add('is-editing');
+    }
+
+    function toggleEditControls() {
+      document.getElementById('adminBar').classList.toggle('active');
+      document.body.classList.toggle('is-editing');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey && e.key.toLowerCase() === 'e') {
+        const key = prompt('Clave de administración:');
+        if (key === ADMIN_SECRET && !isAdmin) enableAdminMode();
+      }
+    });
+
+    function getBadgeHTML(cat) {
+      if (cat === 'sinagerd') return '<span class="badge badge-sinagerd">Normativa SINAGERD</span>';
+      if (cat === 'pmbok') return '<span class="badge badge-pmbok">PMBOK · Experiencia</span>';
+      return '<span class="badge badge-hibrido">Enfoque Integrado</span>';
+    }
+
+    function matchesFilter(item) {
+      const catOk = currentFilter === 'all' || item.category === currentFilter;
+      const text = `${item.title} ${item.summary} ${item.content || ''}`.toLowerCase();
+      const searchOk = !searchQuery || text.includes(searchQuery.toLowerCase());
+      return catOk && searchOk;
+    }
+
+    function renderProfile() {
+      const p = state.profile;
+      document.getElementById('navBrandName').textContent = p.name;
+      document.getElementById('heroTitle').textContent = p.title;
+      document.getElementById('heroBio').textContent = p.bio;
+      document.getElementById('linkedinLink').href = p.linkedin;
+      document.getElementById('youtubeLink').href = p.youtube;
+      document.getElementById('footerText').textContent = `${p.name} · Divulgación en Gestión de Riesgos (Normativa SINAGERD & PMBOK)`;
+    }
+
+    function renderAll() {
+      renderProfile();
+
+      // Articles
+      const articles = state.articles.filter(matchesFilter);
+      document.getElementById('articlesCount').textContent = `${articles.length} ${articles.length === 1 ? 'publicación' : 'publicaciones'}`;
+      const artContainer = document.getElementById('articlesContainer');
+      artContainer.innerHTML = articles.length ? articles.map(a => `
+        <article class="card">
+          <div>
+            <div class="card-meta">
+              ${getBadgeHTML(a.category)}
+              <span class="card-date">${a.date || ''}</span>
+            </div>
+            <h3 class="card-title">${escapeHTML(a.title)}</h3>
+            <p class="card-excerpt">${escapeHTML(a.summary)}</p>
+          </div>
+          <div class="card-footer">
+            <button class="read-link" onclick="openReader('${a.id}')">Leer artículo →</button>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('article', '${a.id}')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', '${a.id}')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      `).join('') : '<div class="empty-state">No hay artículos que coincidan con el filtro actual.</div>';
+
+      // Tutorials
+      const tutorials = state.tutorials.filter(matchesFilter);
+      document.getElementById('tutorialsCount').textContent = `${tutorials.length}`;
+      const tutContainer = document.getElementById('tutorialsContainer');
+      tutContainer.innerHTML = tutorials.length ? tutorials.map(t => `
+        <div class="list-item">
+          <div class="list-item-top">
+            ${getBadgeHTML(t.category)}
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('tutorial', '${t.id}')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('tutorials', '${t.id}')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">${escapeHTML(t.title)}</div>
+          <p class="list-item-desc">${escapeHTML(t.summary)}</p>
+          <a href="${escapeHTML(t.url)}" target="_blank" rel="noopener" class="read-link" style="font-size: 13px;">Ver en YouTube ↗</a>
+        </div>
+      `).join('') : '<div class="empty-state">No hay tutoriales con este filtro.</div>';
+
+      // Links
+      const links = state.links.filter(matchesFilter);
+      document.getElementById('linksCount').textContent = `${links.length}`;
+      const lnkContainer = document.getElementById('linksContainer');
+      lnkContainer.innerHTML = links.length ? links.map(l => `
+        <div class="list-item">
+          <div class="list-item-top">
+            ${getBadgeHTML(l.category)}
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', '${l.id}')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', '${l.id}')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">
+            <a href="${escapeHTML(l.url)}" target="_blank" rel="noopener" style="color: var(--text-primary);">${escapeHTML(l.title)} ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">${escapeHTML(l.summary)}</p>
+        </div>
+      `).join('') : '<div class="empty-state">No hay enlaces con este filtro.</div>';
+    }
+
+    function escapeHTML(str) {
+      return String(str || '').replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
+    }
+
+    // Filters & Search
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderAll();
+      });
+    });
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderAll();
+    });
+
+    // Reader Modal
+    function openReader(id) {
+      const art = state.articles.find(a => a.id === id);
+      if (!art) return;
+      document.getElementById('readerBadge').innerHTML = getBadgeHTML(art.category);
+      document.getElementById('readerTitle').textContent = art.title;
+      document.getElementById('readerBody').textContent = art.content || art.summary;
+      document.getElementById('readerModal').classList.add('open');
+    }
+
+    // Resource Modal
+    function openResourceModal(type, id = '') {
+      document.getElementById('resType').value = type;
+      document.getElementById('resId').value = id;
+
+      const isArticle = type === 'article';
+      document.getElementById('resUrlGroup').style.display = isArticle ? 'none' : 'block';
+      document.getElementById('resContentGroup').style.display = isArticle ? 'block' : 'none';
+      document.getElementById('resUrl').required = !isArticle;
+
+      const labels = { article: 'artículo', tutorial: 'tutorial', link: 'enlace de interés' };
+      document.getElementById('resourceModalTitle').textContent = (id ? 'Editar ' : 'Agregar ') + labels[type];
+
+      if (id) {
+        const listKey = type === 'article' ? 'articles' : (type === 'tutorial' ? 'tutorials' : 'links');
+        const item = state[listKey].find(x => x.id === id);
+        if (item) {
+          document.getElementById('resTitle').value = item.title;
+          document.getElementById('resCategory').value = item.category;
+          document.getElementById('resUrl').value = item.url || '';
+          document.getElementById('resSummary').value = item.summary;
+          document.getElementById('resContent').value = item.content || '';
         }
+      } else {
+        document.getElementById('resourceForm').reset();
+        document.getElementById('resType').value = type;
+        document.getElementById('resId').value = '';
+      }
 
-        function saveData() {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-            } catch (e) {
-                console.error(e);
-            }
-        }
+      document.getElementById('resourceModal').classList.add('open');
+    }
 
-        function toggleManageMode() {
-            manageMode = !manageMode;
-            const toolbar = document.getElementById('manage-toolbar');
-            const label = document.getElementById('manage-toggle-label');
-            const btn = document.getElementById('manage-toggle-btn');
+    function saveResource(e) {
+      e.preventDefault();
+      const type = document.getElementById('resType').value;
+      const id = document.getElementById('resId').value;
+      const listKey = type === 'article' ? 'articles' : (type === 'tutorial' ? 'tutorials' : 'links');
 
-            if (manageMode) {
-                toolbar.classList.remove('hidden');
-                label.textContent = 'Listo';
-                btn.classList.add('border-lavender/40', 'text-ink-primary');
-            } else {
-                toolbar.classList.add('hidden');
-                label.textContent = 'Gestionar';
-                btn.classList.remove('border-lavender/40', 'text-ink-primary');
-            }
+      const entry = {
+        id: id || `${type}-${Date.now()}`,
+        title: document.getElementById('resTitle').value.trim(),
+        category: document.getElementById('resCategory').value,
+        summary: document.getElementById('resSummary').value.trim(),
+        date: new Date().toLocaleDateString('es-PE', { month: 'long', year: 'numeric' })
+      };
 
-            document.querySelectorAll('.manage-only').forEach(el => {
-                el.classList.toggle('hidden', !manageMode);
-            });
-            renderAll();
-        }
+      if (type === 'article') {
+        entry.content = document.getElementById('resContent').value.trim();
+      } else {
+        entry.url = document.getElementById('resUrl').value.trim();
+      }
 
-        function resetDemoData() {
-            appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-            saveData();
-            renderProfile();
-            renderAll();
-            showToast("Contenido inicial restaurado");
-        }
+      if (id) {
+        const idx = state[listKey].findIndex(x => x.id === id);
+        if (idx !== -1) state[listKey][idx] = { ...state[listKey][idx], ...entry };
+      } else {
+        state[listKey].unshift(entry);
+      }
 
-        function renderProfile() {
-            const p = appData.profile;
-            document.getElementById('nav-author-name').textContent = p.name;
-            document.getElementById('hero-author-name').textContent = p.name;
-            document.getElementById('hero-author-role').textContent = p.role;
-            document.getElementById('hero-author-bio').textContent = p.bio;
-            document.getElementById('footer-author-name').textContent = p.name;
-            const readerAuthor = document.getElementById('reader-author-name');
-            if (readerAuthor) readerAuthor.textContent = p.name;
+      persistState();
+      renderAll();
+      closeModal('resourceModal');
+    }
 
-            ['nav-linkedin', 'hero-linkedin-btn', 'footer-linkedin'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.href = p.linkedin;
-            });
-            ['nav-youtube', 'hero-youtube-btn', 'footer-youtube'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.href = p.youtube;
-            });
-        }
+    function deleteResource(listKey, id) {
+      if (!confirm('¿Eliminar este elemento?')) return;
+      state[listKey] = state[listKey].filter(x => x.id !== id);
+      persistState();
+      renderAll();
+    }
 
-        function getBadgeStyle(cat) {
-            if (cat.includes('SINAGERD')) {
-                return 'bg-slateaccent-tint text-slateaccent border border-slateaccent/20';
-            } else if (cat.includes('PMBOK')) {
-                return 'bg-lavender-tint text-lavender border border-lavender/20';
-            } else {
-                return 'bg-white/[0.04] text-ink-secondary border border-white/[0.08]';
-            }
-        }
+    // Profile Modal
+    function openProfileModal() {
+      const p = state.profile;
+      document.getElementById('profName').value = p.name;
+      document.getElementById('profTitle').value = p.title;
+      document.getElementById('profBio').value = p.bio;
+      document.getElementById('profLinkedin').value = p.linkedin;
+      document.getElementById('profYoutube').value = p.youtube;
+      document.getElementById('profileModal').classList.add('open');
+    }
 
-        function matchesFilterAndSearch(item) {
-            const matchCat = currentFilter === 'all' || item.category === currentFilter;
-            if (!matchCat) return false;
-            if (!searchQuery.trim()) return true;
-            const q = searchQuery.toLowerCase();
-            const text = `${item.title} ${item.summary} ${item.category} ${item.tools || ''} ${item.tag || ''}`.toLowerCase();
-            return text.includes(q);
-        }
+    function saveProfile(e) {
+      e.preventDefault();
+      state.profile = {
+        name: document.getElementById('profName').value.trim(),
+        title: document.getElementById('profTitle').value.trim(),
+        bio: document.getElementById('profBio').value.trim(),
+        linkedin: document.getElementById('profLinkedin').value.trim(),
+        youtube: document.getElementById('profYoutube').value.trim()
+      };
+      persistState();
+      renderAll();
+      closeModal('profileModal');
+    }
 
-        function renderAll() {
-            renderArticles();
-            renderTutorials();
-            renderLinks();
-        }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
 
-        function renderArticles() {
-            const container = document.getElementById('articles-grid');
-            const filtered = appData.articles.filter(matchesFilterAndSearch);
+    function closeModalOnBackdrop(e, id) {
+      if (e.target.id === id) closeModal(id);
+    }
 
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="col-span-full text-center py-10 rounded-2xl border border-dashed border-white/[0.07] text-ink-muted text-[13px]">No hay artículos que coincidan con el filtro seleccionado.</div>`;
-                return;
-            }
+    // Export standalone HTML with embedded state and private admin mode preserved
+    function exportHTML() {
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelector('body').classList.remove('is-editing');
+      const adminBar = clone.querySelector('#adminBar');
+      if (adminBar) adminBar.classList.remove('active');
+      const triggerSlot = clone.querySelector('#adminTriggerSlot');
+      if (triggerSlot) triggerSlot.innerHTML = '';
 
-            container.innerHTML = filtered.map(art => `
-                <article class="editorial-card rounded-2xl p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-3.5">
-                            <span class="px-2.5 py-0.5 rounded-md text-[12px] font-normal ${getBadgeStyle(art.category)}">
-                                ${escapeHTML(art.category)}
-                            </span>
-                            ${manageMode ? `
-                            <div class="flex items-center gap-1">
-                                <button onclick="editResource('article', '${art.id}')" title="Editar" class="p-1 text-ink-muted hover:text-ink-primary rounded cursor-pointer">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                </button>
-                                <button onclick="deleteResource('article', '${art.id}')" title="Eliminar" class="p-1 text-ink-muted hover:text-rose-300 rounded cursor-pointer">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                                </button>
-                            </div>` : ''}
-                        </div>
+      const dataScript = clone.querySelector('#initial-data');
+      if (dataScript) {
+        dataScript.textContent = '\n' + JSON.stringify(state, null, 2) + '\n  ';
+      }
 
-                        <h3 class="text-[15.5px] font-medium text-ink-primary leading-[1.45] mb-2">
-                            <button onclick="openArticleReader('${art.id}')" class="text-left hover:text-lavender transition-colors cursor-pointer">
-                                ${escapeHTML(art.title)}
-                            </button>
-                        </h3>
-                        <p class="text-ink-secondary text-[14px] leading-[1.65] line-clamp-3 mb-5">
-                            ${escapeHTML(art.summary)}
-                        </p>
-                    </div>
+      const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
 
-                    <div class="pt-3.5 border-t border-white/[0.05] flex items-center justify-between text-[12.5px]">
-                        <button onclick="openArticleReader('${art.id}')" class="font-medium text-lavender hover:text-ink-primary inline-flex items-center gap-1 transition-colors cursor-pointer">
-                            <span>Leer análisis</span>
-                            <span>→</span>
-                        </button>
-                        <span class="text-ink-muted">${escapeHTML(art.date)} · ${escapeHTML(art.readTime || '5 min')}</span>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-        function renderTutorials() {
-            const container = document.getElementById('tutorials-list');
-            const filtered = appData.tutorials.filter(matchesFilterAndSearch);
-
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="text-center py-10 text-ink-muted text-[13px]">No hay tutoriales que coincidan con el filtro seleccionado.</div>`;
-                return;
-            }
-
-            container.innerHTML = filtered.map(tut => `
-                <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-elevated/40 transition-colors">
-                    <div class="space-y-1.5 max-w-2xl">
-                        <div class="flex flex-wrap items-center gap-2.5 text-[12px]">
-                            <span class="px-2 py-0.5 rounded-md font-normal ${getBadgeStyle(tut.category)}">
-                                ${escapeHTML(tut.category)}
-                            </span>
-                            <span class="text-ink-muted">${escapeHTML(tut.tools || 'Guía práctica')}</span>
-                            <span class="text-ink-muted">·</span>
-                            <span class="text-ink-muted">${escapeHTML(tut.duration || '15:00')}</span>
-                        </div>
-                        <h3 class="text-[15.5px] font-medium text-ink-primary leading-[1.45]">
-                            <a href="${escapeHTML(tut.url || appData.profile.youtube)}" target="_blank" rel="noopener noreferrer" class="hover:text-lavender transition-colors">
-                                ${escapeHTML(tut.title)}
-                            </a>
-                        </h3>
-                        <p class="text-[13.5px] text-ink-secondary leading-[1.6]">
-                            ${escapeHTML(tut.summary)}
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-3 shrink-0 self-start sm:self-center">
-                        <a href="${escapeHTML(tut.url || appData.profile.youtube)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-lavender-tint hover:bg-lavender/15 text-lavender border border-lavender/20 text-[12.5px] font-medium transition-colors">
-                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            <span>Ver en YouTube</span>
-                        </a>
-                        ${manageMode ? `
-                        <div class="flex items-center gap-1">
-                            <button onclick="editResource('tutorial', '${tut.id}')" title="Editar" class="p-1.5 text-ink-muted hover:text-ink-primary rounded cursor-pointer">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                            </button>
-                            <button onclick="deleteResource('tutorial', '${tut.id}')" title="Eliminar" class="p-1.5 text-ink-muted hover:text-rose-300 rounded cursor-pointer">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                            </button>
-                        </div>` : ''}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderLinks() {
-            const container = document.getElementById('links-grid');
-            const filtered = appData.links.filter(matchesFilterAndSearch);
-
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="col-span-full text-center py-10 rounded-2xl border border-dashed border-white/[0.07] text-ink-muted text-[13px]">No hay recursos oficiales que coincidan con el filtro seleccionado.</div>`;
-                return;
-            }
-
-            container.innerHTML = filtered.map(lnk => `
-                <div class="editorial-card rounded-2xl p-5 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-2.5">
-                            <div class="flex items-center gap-2 text-[12px]">
-                                <span class="px-2 py-0.5 rounded-md font-normal ${getBadgeStyle(lnk.category)}">
-                                    ${escapeHTML(lnk.category.includes('SINAGERD') ? 'SINAGERD' : lnk.category.split(' ')[0])}
-                                </span>
-                                <span class="text-ink-muted">${escapeHTML(lnk.tag || 'Oficial')}</span>
-                            </div>
-                            ${manageMode ? `
-                            <div class="flex items-center gap-1">
-                                <button onclick="editResource('link', '${lnk.id}')" title="Editar" class="p-1 text-ink-muted hover:text-ink-primary rounded cursor-pointer">
-                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                </button>
-                                <button onclick="deleteResource('link', '${lnk.id}')" title="Eliminar" class="p-1 text-ink-muted hover:text-rose-300 rounded cursor-pointer">
-                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                                </button>
-                            </div>` : ''}
-                        </div>
-
-                        <a href="${escapeHTML(lnk.url)}" target="_blank" rel="noopener noreferrer" class="block group">
-                            <div class="flex items-start justify-between gap-2">
-                                <h3 class="text-[14.5px] font-medium text-ink-primary group-hover:text-lavender transition-colors leading-[1.4]">
-                                    ${escapeHTML(lnk.title)}
-                                </h3>
-                                <span class="text-ink-muted group-hover:text-lavender text-[13px] shrink-0 transition-colors">↗</span>
-                            </div>
-                            <p class="text-[13px] text-ink-secondary mt-1.5 line-clamp-2 leading-[1.6]">
-                                ${escapeHTML(lnk.summary)}
-                            </p>
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function setFilter(filter) {
-            currentFilter = filter;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.dataset.filter === filter) {
-                    btn.className = 'filter-btn active px-3.5 py-1.5 rounded-lg text-[13px] font-medium transition-colors shrink-0 cursor-pointer bg-lavender/15 text-ink-primary border border-lavender/25';
-                } else {
-                    btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-[13px] font-normal transition-colors shrink-0 cursor-pointer text-ink-secondary hover:text-ink-primary hover:bg-surface border border-transparent';
-                }
-            });
-            renderAll();
-        }
-
-        function handleSearch(val) {
-            searchQuery = val;
-            renderAll();
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        function openArticleReader(id) {
-            const art = appData.articles.find(a => a.id === id);
-            if (!art) return;
-
-            const badge = document.getElementById('reader-badge');
-            badge.textContent = art.category;
-            badge.className = `px-2.5 py-0.5 rounded-md font-normal ${getBadgeStyle(art.category)}`;
-
-            document.getElementById('reader-date').textContent = art.date || 'Nota técnica';
-            document.getElementById('reader-readtime').textContent = `${art.readTime || '5 min'} de lectura`;
-            document.getElementById('reader-title').textContent = art.title;
-            document.getElementById('reader-author-name').textContent = appData.profile.name;
-            document.getElementById('reader-linkedin-link').href = art.url || appData.profile.linkedin;
-
-            const paragraphs = Array.isArray(art.body) && art.body.length > 0 ? art.body : [art.summary];
-            document.getElementById('reader-content').innerHTML = paragraphs.map(p => `<p>${escapeHTML(p)}</p>`).join('');
-
-            document.getElementById('article-reader-modal').classList.remove('hidden');
-        }
-
-        function openResourceModal(defaultType = 'article') {
-            document.getElementById('resource-form').reset();
-            document.getElementById('form-edit-id').value = '';
-            document.getElementById('resource-modal-title').textContent = 'Nuevo recurso';
-            document.getElementById('type-selector-wrap').classList.remove('hidden');
-            switchFormType(defaultType);
-            document.getElementById('resource-modal').classList.remove('hidden');
-        }
-
-        function editResource(type, id) {
-            const collection = type === 'article' ? appData.articles : type === 'tutorial' ? appData.tutorials : appData.links;
-            const item = collection.find(i => i.id === id);
-            if (!item) return;
-
-            document.getElementById('form-edit-id').value = id;
-            document.getElementById('resource-modal-title').textContent = 'Editar recurso';
-            document.getElementById('type-selector-wrap').classList.add('hidden');
-            switchFormType(type);
-
-            document.getElementById('form-category').value = item.category;
-            document.getElementById('form-title').value = item.title;
-            document.getElementById('form-summary').value = item.summary;
-            document.getElementById('form-url').value = item.url || '';
-
-            if (type === 'article') {
-                document.getElementById('input-extra-1').value = item.readTime || '';
-                document.getElementById('form-body').value = Array.isArray(item.body) ? item.body.join('\n\n') : (item.body || '');
-            } else if (type === 'tutorial') {
-                document.getElementById('input-extra-1').value = item.duration || '';
-                document.getElementById('form-tools').value = item.tools || '';
-            } else {
-                document.getElementById('input-extra-1').value = item.tag || '';
-            }
-
-            document.getElementById('resource-modal').classList.remove('hidden');
-        }
-
-        function deleteResource(type, id) {
-            if (type === 'article') {
-                appData.articles = appData.articles.filter(a => a.id !== id);
-            } else if (type === 'tutorial') {
-                appData.tutorials = appData.tutorials.filter(t => t.id !== id);
-            } else {
-                appData.links = appData.links.filter(l => l.id !== id);
-            }
-            saveData();
-            renderAll();
-            showToast("Elemento eliminado");
-        }
-
-        function switchFormType(type) {
-            document.getElementById('form-resource-type').value = type;
-            ['article', 'tutorial', 'link'].forEach(t => {
-                const btn = document.getElementById(`tab-type-${t}`);
-                if (t === type) {
-                    btn.className = 'type-tab py-1.5 text-[12.5px] font-medium rounded-lg bg-elevated text-ink-primary cursor-pointer';
-                } else {
-                    btn.className = 'type-tab py-1.5 text-[12.5px] font-normal rounded-lg text-ink-secondary hover:text-ink-primary cursor-pointer';
-                }
-            });
-
-            const fieldBody = document.getElementById('field-article-body');
-            const fieldTools = document.getElementById('field-tutorial-meta');
-            const labelExtra1 = document.getElementById('label-extra-1');
-            const inputExtra1 = document.getElementById('input-extra-1');
-            const labelUrl = document.getElementById('label-url');
-
-            if (type === 'article') {
-                fieldBody.classList.remove('hidden');
-                fieldTools.classList.add('hidden');
-                labelExtra1.textContent = 'Tiempo de lectura';
-                inputExtra1.placeholder = 'Ej. 6 min';
-                labelUrl.textContent = 'Enlace de LinkedIn (opcional)';
-            } else if (type === 'tutorial') {
-                fieldBody.classList.add('hidden');
-                fieldTools.classList.remove('hidden');
-                labelExtra1.textContent = 'Duración';
-                inputExtra1.placeholder = 'Ej. 15:30';
-                labelUrl.textContent = 'Enlace de YouTube *';
-            } else {
-                fieldBody.classList.add('hidden');
-                fieldTools.classList.add('hidden');
-                labelExtra1.textContent = 'Tipo de plataforma';
-                inputExtra1.placeholder = 'Ej. Visor SIG / Normativa';
-                labelUrl.textContent = 'URL Oficial *';
-            }
-        }
-
-        function handleResourceSubmit(e) {
-            e.preventDefault();
-            const type = document.getElementById('form-resource-type').value;
-            const editId = document.getElementById('form-edit-id').value;
-            const category = document.getElementById('form-category').value;
-            const extra1 = document.getElementById('input-extra-1').value.trim();
-            const title = document.getElementById('form-title').value.trim();
-            const summary = document.getElementById('form-summary').value.trim();
-            const url = document.getElementById('form-url').value.trim();
-            const today = new Date().toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' });
-
-            if (type === 'article') {
-                const rawBody = document.getElementById('form-body').value.trim();
-                const bodyArray = rawBody ? rawBody.split('\n').filter(line => line.trim() !== '') : [summary];
-
-                if (editId) {
-                    const idx = appData.articles.findIndex(a => a.id === editId);
-                    if (idx !== -1) {
-                        appData.articles[idx] = { ...appData.articles[idx], category, readTime: extra1 || '5 min', title, summary, body: bodyArray, url: url || appData.profile.linkedin };
-                    }
-                } else {
-                    appData.articles.unshift({
-                        id: 'art-' + Date.now(),
-                        category,
-                        date: today,
-                        readTime: extra1 || '5 min',
-                        title,
-                        summary,
-                        body: bodyArray,
-                        url: url || appData.profile.linkedin
-                    });
-                }
-            } else if (type === 'tutorial') {
-                const tools = document.getElementById('form-tools').value.trim() || 'Guía práctica';
-                if (editId) {
-                    const idx = appData.tutorials.findIndex(t => t.id === editId);
-                    if (idx !== -1) {
-                        appData.tutorials[idx] = { ...appData.tutorials[idx], category, duration: extra1 || '12:00', tools, title, summary, url: url || appData.profile.youtube };
-                    }
-                } else {
-                    appData.tutorials.unshift({
-                        id: 'tut-' + Date.now(),
-                        category,
-                        duration: extra1 || '12:00',
-                        tools,
-                        title,
-                        summary,
-                        url: url || appData.profile.youtube
-                    });
-                }
-            } else {
-                if (editId) {
-                    const idx = appData.links.findIndex(l => l.id === editId);
-                    if (idx !== -1) {
-                        appData.links[idx] = { ...appData.links[idx], category, tag: extra1 || 'Oficial', title, summary, url: url || 'https://www.gob.pe/cenepred' };
-                    }
-                } else {
-                    appData.links.unshift({
-                        id: 'lnk-' + Date.now(),
-                        category,
-                        tag: extra1 || 'Oficial',
-                        title,
-                        summary,
-                        url: url || 'https://www.gob.pe/sinagerd'
-                    });
-                }
-            }
-
-            saveData();
-            renderAll();
-            closeModal('resource-modal');
-            showToast(editId ? "Cambios guardados" : "Recurso publicado");
-        }
-
-        function openProfileModal() {
-            const p = appData.profile;
-            document.getElementById('prof-name').value = p.name;
-            document.getElementById('prof-role').value = p.role;
-            document.getElementById('prof-bio').value = p.bio;
-            document.getElementById('prof-linkedin').value = p.linkedin;
-            document.getElementById('prof-youtube').value = p.youtube;
-            document.getElementById('profile-modal').classList.remove('hidden');
-        }
-
-        function handleProfileSave(e) {
-            e.preventDefault();
-            appData.profile = {
-                name: document.getElementById('prof-name').value.trim(),
-                role: document.getElementById('prof-role').value.trim(),
-                bio: document.getElementById('prof-bio').value.trim(),
-                linkedin: document.getElementById('prof-linkedin').value.trim(),
-                youtube: document.getElementById('prof-youtube').value.trim()
-            };
-            saveData();
-            renderProfile();
-            closeModal('profile-modal');
-            showToast("Perfil actualizado");
-        }
-
-        function exportStandaloneHTML() {
-            try {
-                const fullDoc = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-                const serializedData = JSON.stringify(appData, null, 4);
-                const updatedHtml = fullDoc.replace(
-                    /const DEFAULT_DATA = \{[\s\S]*?\n        \};/,
-                    `const DEFAULT_DATA = ${serializedData};`
-                );
-                const blob = new Blob([updatedHtml], { type: 'text/html;charset=utf-8' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'index.html';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                showToast("Archivo index.html exportado con tus cambios");
-            } catch (err) {
-                console.error(err);
-                showToast("No se pudo exportar el archivo");
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-message').textContent = msg;
-            toast.classList.remove('translate-y-16', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-16', 'opacity-0');
-            }, 2600);
-        }
-
-        function escapeHTML(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
-
-        window.addEventListener('DOMContentLoaded', initApp);
-    </script>
+    checkAdminAccess();
+    renderAll();
+  </script>
 </body>
 </html>
