@@ -663,7 +663,7 @@
     <section class="hero">
       <p class="hero-eyebrow" id="heroEyebrow">Divulgación técnica · Normativa SINAGERD y PMBOK</p>
       <h1 class="hero-title" id="heroTitle">Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos</h1>
-      <p class="hero-bio" id="heroBio">Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo de Desastres bajo la normativa SINAGERD y la gestión de riesgos en proyectos aplicando los lineamientos del PMBOK desde la experiencia real en campo e infraestructura.</p>
+      <p class="hero-bio" id="heroBio">Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo asociado a fenómenos naturales y bajo los lineamientos del PMBOK, desde la experiencia en investigación técnico - cientifíca y gestión de proyectos de inversión.</p>
       <div class="hero-links">
         <a id="linkedinLink" href="https://www.linkedin.com/in/lizbeth-v-b5749413b/" target="_blank" rel="noopener" class="social-pill">
           <span>LinkedIn</span>
@@ -691,9 +691,27 @@
     <section class="section" id="articulos">
       <div class="section-header">
         <h2 class="section-title">Artículos y notas técnicas</h2>
-        <span class="section-count" id="articlesCount">1 publicación</span>
+        <span class="section-count" id="articlesCount">3 publicaciones</span>
       </div>
       <div class="articles-grid" id="articlesContainer">
+        <article class="card">
+          <div>
+            <div class="card-meta">
+              <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD</h3>
+            <p class="card-excerpt">Síntesis práctica sobre estimación, prevención, reducción, preparación, respuesta, rehabilitación y reconstrucción aplicados a la planificación territorial.</p>
+          </div>
+          <div class="card-footer">
+            <button class="read-link" onclick="openReader('art-1')">Leer artículo →</button>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('article', 'art-1')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'art-1')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      
         <article class="card">
           <div>
             <div class="card-meta">
@@ -711,6 +729,24 @@
             </div>
           </div>
         </article>
+      
+        <article class="card">
+          <div>
+            <div class="card-meta">
+              <span class="badge badge-hibrido">Enfoque Integrado</span>
+              <span class="card-date">Noviembre 2026</span>
+            </div>
+            <h3 class="card-title">Articulando el análisis de peligros SINAGERD con la gestión de riesgos de obra</h3>
+            <p class="card-excerpt">Puente metodológico entre los estudios de peligro sísmico o hidrometeorológico y el control de riesgos contractuales durante la ejecución de proyectos.</p>
+          </div>
+          <div class="card-footer">
+            <button class="read-link" onclick="openReader('art-3')">Leer artículo →</button>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('article', 'art-3')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'art-3')">Eliminar</button>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -719,17 +755,71 @@
       <div id="tutoriales">
         <div class="section-header">
           <h2 class="section-title">Tutoriales en YouTube</h2>
-          <span class="section-count" id="tutorialsCount">0</span>
+          <span class="section-count" id="tutorialsCount">2</span>
         </div>
-        <div class="list-stack" id="tutorialsContainer"><div class="empty-state">No hay tutoriales con este filtro.</div></div>
+        <div class="list-stack" id="tutorialsContainer">
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('tutorial', 'tutorial-1795581997931')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('tutorials', 'tutorial-1795581997931')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">Análisis de peligros con el  SIGRID</div>
+          <p class="list-item-desc">Como realizar un análisis preliminar de riesgos a partir de información del Sistema de Información para la Gestión del Riesgo de Desastres (SIGRID)</p>
+          <a href="https://www.youtube.com/watch?v=rb-3jvmG090" target="_blank" rel="noopener" class="read-link" style="font-size: 13px;">Ver en YouTube ↗</a>
+        </div>
+      
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('tutorial', 'tut-2')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('tutorials', 'tut-2')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">Consulta de información territorial y peligros en plataformas oficiales SINAGERD</div>
+          <p class="list-item-desc">Guía rápida para recopilar información base de peligros naturales en estudios preliminares.</p>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" class="read-link" style="font-size: 13px;">Ver en YouTube ↗</a>
+        </div>
+      </div>
       </div>
 
       <div id="enlaces">
         <div class="section-header">
           <h2 class="section-title">Enlaces de interés</h2>
-          <span class="section-count" id="linksCount">1</span>
+          <span class="section-count" id="linksCount">3</span>
         </div>
         <div class="list-stack" id="linksContainer">
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', 'lnk-1')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', 'lnk-1')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">
+            <a href="https://sigrid.cenepred.gob.pe/" target="_blank" rel="noopener" style="color: var(--text-primary);">SIGRID — Sistema de Información para la Gestión del Riesgo de Desastres ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">Plataforma geoespacial oficial con mapas de peligros, vulnerabilidades y estudios.</p>
+        </div>
+      
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', 'lnk-2')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', 'lnk-2')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title" style="margin-bottom: 4px;">
+            <a href="https://www.gob.pe/27550-presidencia-del-consejo-de-ministros-sistema-nacional-de-gestion-del-riesgo-de-desastres-sinagerd" target="_blank" rel="noopener" style="color: var(--text-primary);">Portal Normativo SINAGERD ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">Marco legal, lineamientos técnicos y documentos oficiales del sistema nacional.</p>
+        </div>
+      
         <div class="list-item">
           <div class="list-item-top">
             <span class="badge badge-pmbok">PMBOK · Experiencia</span>
@@ -849,7 +939,7 @@
   "profile": {
     "name": "Lizbeth Velarde",
     "title": "Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos",
-    "bio": "Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo de Desastres bajo la normativa SINAGERD y la gestión de riesgos en proyectos aplicando los lineamientos del PMBOK desde la experiencia real en campo e infraestructura.",
+    "bio": "Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo asociado a fenómenos naturales y bajo los lineamientos del PMBOK, desde la experiencia en investigación técnico - cientifíca y gestión de proyectos de inversión.",
     "linkedin": "https://www.linkedin.com/in/lizbeth-v-b5749413b/",
     "youtube": "https://www.youtube.com/@lizbethvelardequispe"
   },
