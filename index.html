@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lizbeth Velarde | Gestión de Riesgos — SINAGERD y PMBOK</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-page: #FAFBFD;
@@ -909,7 +908,7 @@
     }
   </style>
 </head>
-<body>
+<body class="">
 
   <!-- Top Navigation -->
   <header class="topbar">
@@ -968,16 +967,116 @@
         <button class="filter-btn" data-filter="pmbok">PMBOK (Experiencia)</button>
         <button class="filter-btn" data-filter="hibrido">Enfoque Integrado</button>
       </div>
-      <input type="search" id="searchInput" class="search-input" placeholder="Buscar artículo, tutorial o enlace..." />
+      <input type="search" id="searchInput" class="search-input" placeholder="Buscar artículo, tutorial o enlace...">
     </section>
 
     <!-- Articles -->
     <section class="section" id="articulos">
       <div class="section-header">
         <h2 class="section-title">Artículos y notas técnicas</h2>
-        <span class="section-count" id="articlesCount"></span>
+        <span class="section-count" id="articlesCount">4 publicaciones</span>
       </div>
-      <div class="articles-grid" id="articlesContainer"></div>
+      <div class="articles-grid" id="articlesContainer">
+        <article class="card">
+          <div>
+            
+            <div class="card-meta">
+              <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">
+              <a href="?articulo=article-1795638598598" onclick="event.preventDefault(); openReader('article-1795638598598', true);">Volcán Misti: conocer los peligros volcánicos es fundamental para la gestión del riesgo de desastres</a>
+            </h3>
+            <p class="card-excerpt">El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.</p>
+            <div class="card-indicators"><span class="indicator-tag">Video didáctico</span><span class="indicator-tag">1 recurso</span></div>
+          </div>
+          <div>
+            <div class="card-footer">
+              <a href="?articulo=article-1795638598598" class="read-link" onclick="event.preventDefault(); openReader('article-1795638598598', true);">Abrir artículo →</a>
+              <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?articulo=article-1795638598598', event)">Copiar enlace</button>
+            </div>
+            <div class="item-actions" style="margin-top: 10px;">
+              <button class="mini-btn" onclick="openResourceModal('article', 'article-1795638598598')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'article-1795638598598')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card">
+          <div>
+            
+            <div class="card-meta">
+              <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">
+              <a href="?articulo=art-1" onclick="event.preventDefault(); openReader('art-1', true);">Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD</a>
+            </h3>
+            <p class="card-excerpt">Síntesis práctica sobre estimación, prevención, reducción, preparación, respuesta, rehabilitación y reconstrucción aplicados a la planificación territorial.</p>
+            
+          </div>
+          <div>
+            <div class="card-footer">
+              <a href="?articulo=art-1" class="read-link" onclick="event.preventDefault(); openReader('art-1', true);">Abrir artículo →</a>
+              <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?articulo=art-1', event)">Copiar enlace</button>
+            </div>
+            <div class="item-actions" style="margin-top: 10px;">
+              <button class="mini-btn" onclick="openResourceModal('article', 'art-1')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'art-1')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card">
+          <div>
+            
+            <div class="card-meta">
+              <span class="badge badge-pmbok">PMBOK · Experiencia</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">
+              <a href="?articulo=art-2" onclick="event.preventDefault(); openReader('art-2', true);">Matriz de probabilidad e impacto: lecciones prácticas desde la gestión de proyectos PMBOK</a>
+            </h3>
+            <p class="card-excerpt">Cómo estructurar un registro de riesgos accionable en proyectos de ingeniería sin caer en matrices genéricas desconectadas del cronograma y presupuesto.</p>
+            
+          </div>
+          <div>
+            <div class="card-footer">
+              <a href="?articulo=art-2" class="read-link" onclick="event.preventDefault(); openReader('art-2', true);">Abrir artículo →</a>
+              <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?articulo=art-2', event)">Copiar enlace</button>
+            </div>
+            <div class="item-actions" style="margin-top: 10px;">
+              <button class="mini-btn" onclick="openResourceModal('article', 'art-2')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'art-2')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="card">
+          <div>
+            
+            <div class="card-meta">
+              <span class="badge badge-hibrido">Enfoque Integrado</span>
+              <span class="card-date">noviembre de 2026</span>
+            </div>
+            <h3 class="card-title">
+              <a href="?articulo=art-3" onclick="event.preventDefault(); openReader('art-3', true);">Articulando el análisis de peligros SINAGERD con la gestión de riesgos de obra</a>
+            </h3>
+            <p class="card-excerpt">Puente metodológico entre los estudios de peligro sísmico o hidrometeorológico y el control de riesgos contractuales durante la ejecución de proyectos.</p>
+            
+          </div>
+          <div>
+            <div class="card-footer">
+              <a href="?articulo=art-3" class="read-link" onclick="event.preventDefault(); openReader('art-3', true);">Abrir artículo →</a>
+              <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?articulo=art-3', event)">Copiar enlace</button>
+            </div>
+            <div class="item-actions" style="margin-top: 10px;">
+              <button class="mini-btn" onclick="openResourceModal('article', 'art-3')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('articles', 'art-3')">Eliminar</button>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Tutorials & Official Links -->
@@ -985,17 +1084,101 @@
       <div id="tutoriales">
         <div class="section-header">
           <h2 class="section-title">Tutoriales en YouTube</h2>
-          <span class="section-count" id="tutorialsCount"></span>
+          <span class="section-count" id="tutorialsCount">2</span>
         </div>
-        <div class="list-stack" id="tutorialsContainer"></div>
+        <div class="list-stack" id="tutorialsContainer">
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('tutorial', 'tutorial-1795581997931')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('tutorials', 'tutorial-1795581997931')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title">
+            <a href="?tutorial=tutorial-1795581997931" onclick="event.preventDefault(); openTutorialReader('tutorial-1795581997931', true);">Análisis de peligros con el SIGRID</a>
+          </div>
+          <p class="list-item-desc">Cómo realizar un análisis preliminar de riesgos a partir de información del Sistema de Información para la Gestión del Riesgo de Desastres (SIGRID).</p>
+          <div class="list-item-footer">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <a href="?tutorial=tutorial-1795581997931" class="read-link" style="font-size: 13px;" onclick="event.preventDefault(); openTutorialReader('tutorial-1795581997931', true);">Ver tutorial →</a>
+              <a href="https://www.youtube.com/watch?v=rb-3jvmG090" target="_blank" rel="noopener" class="read-link" style="font-size: 13px; color: var(--accent-secondary);">YouTube ↗</a>
+            </div>
+            <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?tutorial=tutorial-1795581997931', event)">Enlace</button>
+          </div>
+        </div>
+      
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('tutorial', 'tut-2')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('tutorials', 'tut-2')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title">
+            <a href="?tutorial=tut-2" onclick="event.preventDefault(); openTutorialReader('tut-2', true);">Consulta de información territorial y peligros en plataformas oficiales SINAGERD</a>
+          </div>
+          <p class="list-item-desc">Guía rápida para recopilar información base de peligros naturales en estudios preliminares.</p>
+          <div class="list-item-footer">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <a href="?tutorial=tut-2" class="read-link" style="font-size: 13px;" onclick="event.preventDefault(); openTutorialReader('tut-2', true);">Ver tutorial →</a>
+              <a href="https://www.youtube.com/@lizbethvelardequispe" target="_blank" rel="noopener" class="read-link" style="font-size: 13px; color: var(--accent-secondary);">YouTube ↗</a>
+            </div>
+            <button type="button" class="share-btn" onclick="copyShareLink('https://lvelardelvq-lab.github.io/lizbethvelarde/?tutorial=tut-2', event)">Enlace</button>
+          </div>
+        </div>
+      </div>
       </div>
 
       <div id="enlaces">
         <div class="section-header">
           <h2 class="section-title">Enlaces de interés</h2>
-          <span class="section-count" id="linksCount"></span>
+          <span class="section-count" id="linksCount">3</span>
         </div>
-        <div class="list-stack" id="linksContainer"></div>
+        <div class="list-stack" id="linksContainer">
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', 'lnk-1')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', 'lnk-1')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title">
+            <a href="https://sigrid.cenepred.gob.pe/" target="_blank" rel="noopener">SIGRID — Sistema de Información para la Gestión del Riesgo de Desastres ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">Plataforma geoespacial oficial con mapas de peligros, vulnerabilidades y estudios.</p>
+        </div>
+      
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-sinagerd">Normativa SINAGERD</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', 'lnk-2')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', 'lnk-2')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title">
+            <a href="https://www.gob.pe/27550-presidencia-del-consejo-de-ministros-sistema-nacional-de-gestion-del-riesgo-de-desastres-sinagerd" target="_blank" rel="noopener">Portal Normativo SINAGERD ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">Marco legal, lineamientos técnicos y documentos oficiales del sistema nacional.</p>
+        </div>
+      
+        <div class="list-item">
+          <div class="list-item-top">
+            <span class="badge badge-pmbok">PMBOK · Experiencia</span>
+            <div class="item-actions">
+              <button class="mini-btn" onclick="openResourceModal('link', 'lnk-3')">Editar</button>
+              <button class="mini-btn danger" onclick="deleteResource('links', 'lnk-3')">Eliminar</button>
+            </div>
+          </div>
+          <div class="list-item-title">
+            <a href="https://www.pmi.org/" target="_blank" rel="noopener">Project Management Institute (PMI) — Estándares PMBOK ↗</a>
+          </div>
+          <p class="list-item-desc" style="margin-bottom: 0;">Referencia internacional de buenas prácticas en dirección y riesgos de proyectos.</p>
+        </div>
+      </div>
       </div>
     </section>
   </main>
@@ -1021,7 +1204,7 @@
           <a id="readerNewTabBtn" href="#" target="_blank" rel="noopener" class="btn-ghost">Abrir en pestaña nueva ↗</a>
         </div>
       </div>
-      <img id="readerImage" class="reader-image" style="display:none;" alt="Imagen del artículo" />
+      <img id="readerImage" class="reader-image" style="display:none;" alt="Imagen del artículo">
       <div id="readerBody" class="modal-body"></div>
       <div id="readerVideoContainer"></div>
       <div id="readerAttachmentsContainer"></div>
@@ -1032,15 +1215,15 @@
   <div id="resourceModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'resourceModal')">
     <div class="modal">
       <div class="modal-header">
-        <h3 id="resourceModalTitle" class="modal-title">Agregar artículo</h3>
+        <h3 id="resourceModalTitle" class="modal-title">Editar artículo</h3>
         <button class="close-btn" onclick="closeModal('resourceModal')">×</button>
       </div>
       <form id="resourceForm" onsubmit="saveResource(event)">
-        <input type="hidden" id="resType" value="article" />
-        <input type="hidden" id="resId" value="" />
+        <input type="hidden" id="resType" value="article">
+        <input type="hidden" id="resId" value="article-1795638598598">
         <div class="form-group">
           <label class="form-label">Título</label>
-          <input type="text" id="resTitle" class="form-control" required="" />
+          <input type="text" id="resTitle" class="form-control" required="">
         </div>
         <div class="form-group">
           <label class="form-label">Enfoque temático</label>
@@ -1052,14 +1235,14 @@
         </div>
         <div class="form-group" id="resUrlGroup" style="display: none;">
           <label class="form-label" id="resUrlLabel">Enlace (URL)</label>
-          <input type="url" id="resUrl" class="form-control" placeholder="https://..." />
+          <input type="url" id="resUrl" class="form-control" placeholder="https://...">
         </div>
         <div class="form-group">
           <label class="form-label" id="resSummaryLabel">Resumen breve</label>
           <textarea id="resSummary" class="form-control" style="min-height: 75px;" required=""></textarea>
         </div>
 
-        <div id="articleExtendedFields">
+        <div id="articleExtendedFields" style="display: block;">
           <div class="form-group">
             <label class="form-label">Contenido completo del artículo</label>
             <textarea id="resContent" class="form-control" style="min-height: 150px;"></textarea>
@@ -1068,10 +1251,10 @@
           <div class="form-group">
             <label class="form-label">Imagen del artículo (URL o subir desde tu equipo)</label>
             <div class="inline-row">
-              <input type="text" id="resImageUrl" class="form-control" placeholder="https://... o sube una imagen" />
+              <input type="text" id="resImageUrl" class="form-control" placeholder="https://... o sube una imagen">
               <label class="btn-ghost" style="white-space: nowrap; cursor: pointer;">
                 Subir imagen
-                <input type="file" id="resImageFile" accept="image/*" style="display:none;" onchange="handleImageUpload(event)" />
+                <input type="file" id="resImageFile" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
               </label>
             </div>
             <div id="imagePreviewInfo" class="form-hint"></div>
@@ -1079,25 +1262,30 @@
 
           <div class="form-group">
             <label class="form-label">Material audiovisual — Video de YouTube dentro del artículo</label>
-            <input type="url" id="resVideoUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=... o enlace de YouTube" />
+            <input type="url" id="resVideoUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=... o enlace de YouTube">
             <div class="form-hint">Se mostrará como reproductor didáctico dentro de la lectura del artículo.</div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Material didáctico — Enlaces de apoyo y archivos adjuntos (PDF, Excel, Word, etc.)</label>
             <div class="inline-row" style="margin-bottom: 8px;">
-              <input type="text" id="attLabelInput" class="form-control" style="flex: 1; min-width: 160px;" placeholder="Nombre del recurso o enlace" />
-              <input type="url" id="attUrlInput" class="form-control" style="flex: 1; min-width: 180px;" placeholder="https://..." />
+              <input type="text" id="attLabelInput" class="form-control" style="flex: 1; min-width: 160px;" placeholder="Nombre del recurso o enlace">
+              <input type="url" id="attUrlInput" class="form-control" style="flex: 1; min-width: 180px;" placeholder="https://...">
               <button type="button" class="btn-ghost" onclick="addLinkAttachment()" style="white-space: nowrap;">+ Enlace</button>
             </div>
             <div class="inline-row">
               <label class="btn-ghost" style="cursor: pointer;">
                 + Adjuntar archivo desde computadora
-                <input type="file" id="attFileInput" onchange="handleFileAttachment(event)" style="display:none;" />
+                <input type="file" id="attFileInput" onchange="handleFileAttachment(event)" style="display:none;">
               </label>
               <span class="form-hint" style="margin:0;">Recomendado: archivos ligeros (&lt; 2 MB)</span>
             </div>
-            <div id="attachmentDraftList" class="attachment-draft-list"></div>
+            <div id="attachmentDraftList" class="attachment-draft-list">
+        <div class="attachment-draft-item">
+          <span><strong>[Enlace]</strong> Simulación de peligro volcánico en YouTube</span>
+          <button type="button" class="mini-btn danger" onclick="removeDraftAttachment(0)">Quitar</button>
+        </div>
+      </div>
           </div>
         </div>
 
@@ -1119,11 +1307,11 @@
       <form onsubmit="saveProfile(event)">
         <div class="form-group">
           <label class="form-label">Nombre profesional</label>
-          <input type="text" id="profName" class="form-control" required="" />
+          <input type="text" id="profName" class="form-control" required="">
         </div>
         <div class="form-group">
           <label class="form-label">Titular principal</label>
-          <input type="text" id="profTitle" class="form-control" required="" />
+          <input type="text" id="profTitle" class="form-control" required="">
         </div>
         <div class="form-group">
           <label class="form-label">Presentación breve</label>
@@ -1131,11 +1319,11 @@
         </div>
         <div class="form-group">
           <label class="form-label">URL de LinkedIn</label>
-          <input type="url" id="profLinkedin" class="form-control" required="" />
+          <input type="url" id="profLinkedin" class="form-control" required="">
         </div>
         <div class="form-group">
           <label class="form-label">URL de Canal de YouTube</label>
-          <input type="url" id="profYoutube" class="form-control" required="" />
+          <input type="url" id="profYoutube" class="form-control" required="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn-ghost" onclick="closeModal('profileModal')">Cancelar</button>
@@ -1145,111 +1333,111 @@
     </div>
   </div>
 
-  <div id="toast" class="toast"></div>
+  <div id="toast" class="toast">Cambios guardados</div>
 
   <script id="initial-data" type="application/json">
-  {
-    "profile": {
-      "name": "Lizbeth Velarde",
-      "title": "Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos",
-      "bio": "Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo asociado a fenómenos naturales y bajo los lineamientos del PMBOK, desde la experiencia en investigación técnico - cientifíca y gestión de proyectos de inversión.",
-      "linkedin": "https://www.linkedin.com/in/lizbeth-v-b5749413b/",
-      "youtube": "https://www.youtube.com/@lizbethvelardequispe"
+{
+  "profile": {
+    "name": "Lizbeth Velarde",
+    "title": "Lizbeth Velarde — Gestión de Riesgos en Territorio y Proyectos",
+    "bio": "Espacio de divulgación y análisis práctico sobre la Gestión del Riesgo asociado a fenómenos naturales y bajo los lineamientos del PMBOK, desde la experiencia en investigación técnico - cientifíca y gestión de proyectos de inversión.",
+    "linkedin": "https://www.linkedin.com/in/lizbeth-v-b5749413b/",
+    "youtube": "https://www.youtube.com/@lizbethvelardequispe"
+  },
+  "articles": [
+    {
+      "id": "article-1795638598598",
+      "title": "Volcán Misti: conocer los peligros volcánicos es fundamental para la gestión del riesgo de desastres",
+      "category": "sinagerd",
+      "summary": "El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.",
+      "date": "noviembre de 2026",
+      "content": "El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.\n\nA través de la simulación de un escenario eruptivo podemos visualizar algunos de los principales peligros asociados:\n\n• Flujos piroclásticos: mezclas de gases, ceniza y fragmentos de roca a muy altas temperaturas que descienden por las laderas del volcán a gran velocidad. Estos flujos destruyen y calcinan todo lo que encuentren en su paso.\n\n• Caída de piroclastos (tefras): fragmentos de roca que son expulsados hacia la atmósfera de manera violenta formando una columna eruptiva que puede alcanzar varios kilómetros de altura y posteriormente caer sobre el suelo. Pueden generar problemas en la salud, contaminar fuentes de agua y cultivos, colapsar los techos por el peso e interrumpir el tráfico aéreo, entre otros.\n\n• Lahares: flujos de lodo y escombros volcánicos que pueden desplazarse por quebradas y cauces, alcanzando zonas alejadas del edificio volcánico. Pueden desbordarse y causar inundaciones y daños en áreas aledañas. Se pueden generar en periodos de erupción o de tranquilidad volcánica.\n\n• Flujos de lava: corrientes de roca fundida que son expulsadas por el cráter o fracturas en los flancos del volcán. Calcinan y destruyen todo a su paso; sin embargo, no representan un peligro para las personas por su baja velocidad de desplazamiento.\n\n• Avalanchas de escombros: son derrumbes o colapsos de un sector del volcán. Ocurren con poca frecuencia pero pueden alcanzar decenas de kilómetros de distancia mientras se desplazan a gran velocidad. Entierran y destruyen todo lo que encuentran a su paso.\n\n• Gases volcánicos: se producen durante la erupción volcánica, principalmente conformados por vapor de agua, pero también dióxido de carbono, dióxido de azufre, ácido clorhídrico y azufre, entre otros. Pueden provocar lluvias ácidas que generan corrosión y daños en los cultivos, y contaminar agua y suelos.\n\nPero conocer estos fenómenos es solo una parte. En la Gestión del Riesgo de Desastres, es fundamental conocer cómo podrían manifestarse estos peligros, qué elementos estarían expuestos y cuáles serían sus posibles consecuencias.\n\n\"La ciencia nos permite conocer los peligros; la gestión del riesgo nos permite transformar ese conocimiento en decisiones y acciones para proteger a la población.\"\n\nReferencia: Mapa de peligros del volcán Misti - Instituto Geofísico del Perú (IGP).",
+      "imageUrl": "",
+      "videoUrl": "https://www.youtube.com/watch?v=PaFSuWJpXH8",
+      "attachments": [
+        {
+          "type": "link",
+          "label": "Simulación de peligro volcánico en YouTube",
+          "url": "https://www.youtube.com/watch?v=PaFSuWJpXH8"
+        }
+      ]
     },
-    "articles": [
-      {
-        "id": "article-1795638598598",
-        "title": "Volcán Misti: conocer los peligros volcánicos es fundamental para la gestión del riesgo de desastres",
-        "category": "sinagerd",
-        "summary": "El volcán Misti, ubicado en la ciudad de Arequipa, es un referente importante cuando hablamos de peligros volcánicos y de la necesidad de fortalecer la gestión de riesgo de desastres.",
-        "date": "noviembre de 2026",
-        "content": "Algunos de los principales peligros volcánicos se detallan a continuación:\n\n• Flujos piroclásticos: mezclas de gases, ceniza y fragmentos de roca a muy altas temperaturas que descienden por las laderas del volcán a gran velocidad. Estos flujos destruyen y calcinan todo lo que encuentren en su paso.\n\n• Caída de piroclastos (tefras): fragmentos de roca que son expulsados hacia la atmósfera de manera violenta formando una columna eruptiva que puede alcanzar varios kilómetros de altura y posteriormente caer sobre el suelo. Pueden generar problemas en la salud, contaminar fuentes de agua y cultivos, colapsar los techos por el peso e interrumpir el tráfico aéreo, entre otros.\n\n• Lahares: flujos de lodo y escombros volcánicos que pueden desplazarse por quebradas y cauces, alcanzando zonas alejadas del edificio volcánico. Pueden desbordarse y causar inundaciones y daños en áreas aledañas. Se pueden generar en periodos de erupción o de tranquilidad volcánica.\n\n• Flujos de lava: corrientes de roca fundida que son expulsadas por el cráter o fracturas en los flancos del volcán. Calcinan y destruyen todo a su paso; sin embargo, no representan un peligro para las personas por su baja velocidad de desplazamiento.\n\n• Avalanchas de escombros: son derrumbes o colapsos de un sector del volcán. Ocurren con poca frecuencia pero pueden alcanzar decenas de kilómetros de distancia mientras se desplazan a gran velocidad. Entierran y destruyen todo lo que encuentran a su paso.\n\n• Gases volcánicos: se producen durante la erupción volcánica, principalmente conformados por vapor de agua, pero también dióxido de carbono, dióxido de azufre, ácido clorhídrico y azufre, entre otros. Pueden provocar lluvias ácidas que generan corrosión y daños en los cultivos, y contaminar agua y suelos.\n\nPero conocer estos fenómenos es solo una parte. En la Gestión del Riesgo de Desastres, es fundamental conocer cómo podrían manifestarse estos peligros, qué elementos estarían expuestos y cuáles serían sus posibles consecuencias.\n\n\"La ciencia nos permite conocer los peligros; la gestión del riesgo nos permite transformar ese conocimiento en decisiones y acciones para proteger a la población.\"\n\nReferencia: Mapa de peligros del volcán Misti - Instituto Geofísico del Perú (IGP).",
-        "imageUrl": "",
-        "videoUrl": "https://www.youtube.com/watch?v=PaFSuWJpXH8",
-        "attachments": [
-          {
-            "type": "link",
-            "label": "Simulación de peligro volcánico en YouTube",
-            "url": "https://www.youtube.com/watch?v=PaFSuWJpXH8"
-          }
-        ]
-      },
-      {
-        "id": "art-1",
-        "title": "Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD",
-        "category": "sinagerd",
-        "date": "noviembre de 2026",
-        "summary": "Síntesis práctica sobre estimación, prevención, reducción, preparación, respuesta, rehabilitación y reconstrucción aplicados a la planificación territorial.",
-        "content": "La Ley N.° 29664 y su reglamento establecen el marco del Sistema Nacional de Gestión del Riesgo de Desastres (SINAGERD) mediante tres componentes (prospectivo, correctivo y reactivo) articulados en siete procesos fundamentales.\n\n1. Estimación del riesgo: Identificación de peligros, análisis de vulnerabilidades y cálculo de niveles de riesgo.\n2. Prevención del riesgo: Evitar la generación de nuevas condiciones de vulnerabilidad en el territorio.\n3. Reducción del riesgo: Intervenciones estructurales y no estructurales sobre vulnerabilidades ya existentes.\n4. Preparación: Planeamiento y fortalecimiento de capacidades para una respuesta oportuna.\n5. Respuesta: Atención inmediata ante la inminencia u ocurrencia de una emergencia.\n6. Rehabilitación: Restablecimiento temporal de servicios básicos indispensables.\n7. Reconstrucción: Recuperación sostenible de infraestructura y medios de vida tras el impacto.",
-        "imageUrl": "",
-        "videoUrl": "",
-        "attachments": []
-      },
-      {
-        "id": "art-2",
-        "title": "Matriz de probabilidad e impacto: lecciones prácticas desde la gestión de proyectos PMBOK",
-        "category": "pmbok",
-        "date": "noviembre de 2026",
-        "summary": "Cómo estructurar un registro de riesgos accionable en proyectos de ingeniería sin caer en matrices genéricas desconectadas del cronograma y presupuesto.",
-        "content": "En la práctica de proyectos de infraestructura, uno de los errores más frecuentes es construir registros de riesgos estáticos que no dialogan con la ruta crítica ni con las reservas de contingencia.\n\nDesde la experiencia aplicada con el enfoque del PMBOK:\n• Define umbrales claros de probabilidad e impacto antes de calificar cada riesgo.\n• Redacta cada riesgo con estructura causa–evento–efecto para evitar ambigüedades.\n• Asigna un dueño de riesgo con capacidad real de ejecutar el plan de respuesta (evitar, transferir, mitigar o aceptar).\n• Revisa los disparadores (triggers) en cada reunión de seguimiento semanal.",
-        "imageUrl": "",
-        "videoUrl": "",
-        "attachments": []
-      },
-      {
-        "id": "art-3",
-        "title": "Articulando el análisis de peligros SINAGERD con la gestión de riesgos de obra",
-        "category": "hibrido",
-        "date": "noviembre de 2026",
-        "summary": "Puente metodológico entre los estudios de peligro sísmico o hidrometeorológico y el control de riesgos contractuales durante la ejecución de proyectos.",
-        "content": "Cuando un proyecto de inversión pública o privada incorpora desde la formulación los criterios de evaluación de riesgos bajo normativa SINAGERD, se reducen significativamente los eventos imprevistos durante la etapa de ejecución.\n\nIntegrar ambos mundos permite traducir peligros naturales del entorno (sismicidad, movimientos en masa, lluvias intensas) en planes concretos de mitigación dentro del plan de gestión de riesgos del proyecto.",
-        "imageUrl": "",
-        "videoUrl": "",
-        "attachments": []
-      }
-    ],
-    "tutorials": [
-      {
-        "id": "tutorial-1795581997931",
-        "title": "Análisis de peligros con el SIGRID",
-        "category": "sinagerd",
-        "summary": "Cómo realizar un análisis preliminar de riesgos a partir de información del Sistema de Información para la Gestión del Riesgo de Desastres (SIGRID).",
-        "date": "noviembre de 2026",
-        "url": "https://www.youtube.com/watch?v=rb-3jvmG090"
-      },
-      {
-        "id": "tut-2",
-        "title": "Consulta de información territorial y peligros en plataformas oficiales SINAGERD",
-        "category": "sinagerd",
-        "summary": "Guía rápida para recopilar información base de peligros naturales en estudios preliminares.",
-        "date": "noviembre de 2026",
-        "url": "https://www.youtube.com/@lizbethvelardequispe"
-      }
-    ],
-    "links": [
-      {
-        "id": "lnk-1",
-        "title": "SIGRID — Sistema de Información para la Gestión del Riesgo de Desastres",
-        "category": "sinagerd",
-        "url": "https://sigrid.cenepred.gob.pe/",
-        "summary": "Plataforma geoespacial oficial con mapas de peligros, vulnerabilidades y estudios."
-      },
-      {
-        "id": "lnk-2",
-        "title": "Portal Normativo SINAGERD",
-        "category": "sinagerd",
-        "url": "https://www.gob.pe/27550-presidencia-del-consejo-de-ministros-sistema-nacional-de-gestion-del-riesgo-de-desastres-sinagerd",
-        "summary": "Marco legal, lineamientos técnicos y documentos oficiales del sistema nacional."
-      },
-      {
-        "id": "lnk-3",
-        "title": "Project Management Institute (PMI) — Estándares PMBOK",
-        "category": "pmbok",
-        "url": "https://www.pmi.org/",
-        "summary": "Referencia internacional de buenas prácticas en dirección y riesgos de proyectos."
-      }
-    ]
-  }
+    {
+      "id": "art-1",
+      "title": "Los siete procesos de la Gestión del Riesgo de Desastres en la normativa SINAGERD",
+      "category": "sinagerd",
+      "date": "noviembre de 2026",
+      "summary": "Síntesis práctica sobre estimación, prevención, reducción, preparación, respuesta, rehabilitación y reconstrucción aplicados a la planificación territorial.",
+      "content": "La Ley N.° 29664 y su reglamento establecen el marco del Sistema Nacional de Gestión del Riesgo de Desastres (SINAGERD) mediante tres componentes (prospectivo, correctivo y reactivo) articulados en siete procesos fundamentales.\n\n1. Estimación del riesgo: Identificación de peligros, análisis de vulnerabilidades y cálculo de niveles de riesgo.\n2. Prevención del riesgo: Evitar la generación de nuevas condiciones de vulnerabilidad en el territorio.\n3. Reducción del riesgo: Intervenciones estructurales y no estructurales sobre vulnerabilidades ya existentes.\n4. Preparación: Planeamiento y fortalecimiento de capacidades para una respuesta oportuna.\n5. Respuesta: Atención inmediata ante la inminencia u ocurrencia de una emergencia.\n6. Rehabilitación: Restablecimiento temporal de servicios básicos indispensables.\n7. Reconstrucción: Recuperación sostenible de infraestructura y medios de vida tras el impacto.",
+      "imageUrl": "",
+      "videoUrl": "",
+      "attachments": []
+    },
+    {
+      "id": "art-2",
+      "title": "Matriz de probabilidad e impacto: lecciones prácticas desde la gestión de proyectos PMBOK",
+      "category": "pmbok",
+      "date": "noviembre de 2026",
+      "summary": "Cómo estructurar un registro de riesgos accionable en proyectos de ingeniería sin caer en matrices genéricas desconectadas del cronograma y presupuesto.",
+      "content": "En la práctica de proyectos de infraestructura, uno de los errores más frecuentes es construir registros de riesgos estáticos que no dialogan con la ruta crítica ni con las reservas de contingencia.\n\nDesde la experiencia aplicada con el enfoque del PMBOK:\n• Define umbrales claros de probabilidad e impacto antes de calificar cada riesgo.\n• Redacta cada riesgo con estructura causa–evento–efecto para evitar ambigüedades.\n• Asigna un dueño de riesgo con capacidad real de ejecutar el plan de respuesta (evitar, transferir, mitigar o aceptar).\n• Revisa los disparadores (triggers) en cada reunión de seguimiento semanal.",
+      "imageUrl": "",
+      "videoUrl": "",
+      "attachments": []
+    },
+    {
+      "id": "art-3",
+      "title": "Articulando el análisis de peligros SINAGERD con la gestión de riesgos de obra",
+      "category": "hibrido",
+      "date": "noviembre de 2026",
+      "summary": "Puente metodológico entre los estudios de peligro sísmico o hidrometeorológico y el control de riesgos contractuales durante la ejecución de proyectos.",
+      "content": "Cuando un proyecto de inversión pública o privada incorpora desde la formulación los criterios de evaluación de riesgos bajo normativa SINAGERD, se reducen significativamente los eventos imprevistos durante la etapa de ejecución.\n\nIntegrar ambos mundos permite traducir peligros naturales del entorno (sismicidad, movimientos en masa, lluvias intensas) en planes concretos de mitigación dentro del plan de gestión de riesgos del proyecto.",
+      "imageUrl": "",
+      "videoUrl": "",
+      "attachments": []
+    }
+  ],
+  "tutorials": [
+    {
+      "id": "tutorial-1795581997931",
+      "title": "Análisis de peligros con el SIGRID",
+      "category": "sinagerd",
+      "summary": "Cómo realizar un análisis preliminar de riesgos a partir de información del Sistema de Información para la Gestión del Riesgo de Desastres (SIGRID).",
+      "date": "noviembre de 2026",
+      "url": "https://www.youtube.com/watch?v=rb-3jvmG090"
+    },
+    {
+      "id": "tut-2",
+      "title": "Consulta de información territorial y peligros en plataformas oficiales SINAGERD",
+      "category": "sinagerd",
+      "summary": "Guía rápida para recopilar información base de peligros naturales en estudios preliminares.",
+      "date": "noviembre de 2026",
+      "url": "https://www.youtube.com/@lizbethvelardequispe"
+    }
+  ],
+  "links": [
+    {
+      "id": "lnk-1",
+      "title": "SIGRID — Sistema de Información para la Gestión del Riesgo de Desastres",
+      "category": "sinagerd",
+      "url": "https://sigrid.cenepred.gob.pe/",
+      "summary": "Plataforma geoespacial oficial con mapas de peligros, vulnerabilidades y estudios."
+    },
+    {
+      "id": "lnk-2",
+      "title": "Portal Normativo SINAGERD",
+      "category": "sinagerd",
+      "url": "https://www.gob.pe/27550-presidencia-del-consejo-de-ministros-sistema-nacional-de-gestion-del-riesgo-de-desastres-sinagerd",
+      "summary": "Marco legal, lineamientos técnicos y documentos oficiales del sistema nacional."
+    },
+    {
+      "id": "lnk-3",
+      "title": "Project Management Institute (PMI) — Estándares PMBOK",
+      "category": "pmbok",
+      "url": "https://www.pmi.org/",
+      "summary": "Referencia internacional de buenas prácticas en dirección y riesgos de proyectos."
+    }
+  ]
+}
   </script>
 
   <script>
@@ -1865,5 +2053,6 @@
     renderAll();
     checkUrlParams();
   </script>
-</body>
-</html>
+
+
+</body></html>
